@@ -14,7 +14,7 @@ import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
 import Stake from './views/Stake'
-import bgVid from './assets/img/background-vid.mp4';
+import bgVid from './assets/img/background-vid.mp4'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -40,18 +40,18 @@ const App: React.FC = () => {
           poster="polina.jpg"
           id="bgvid">
           <source src={bgVid} type="video/mp4" />
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/farms">
-              <Farms />
-            </Route>
-            <Route path="/staking">
-              <Stake />
-            </Route>
-          </Switch>
         </video>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/farms">
+            <Farms />
+          </Route>
+          <Route path="/staking">
+            <Stake />
+          </Route>
+        </Switch>
       </Router>
       <Disclaimer />
     </Providers>
