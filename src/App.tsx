@@ -13,7 +13,7 @@ import useModal from './hooks/useModal'
 import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
-import Stake from './views/Stake'
+
 import bgVid from './assets/img/background-vid.mp4'
 import bgVidWebM from './assets/vid/background-vid.webm'
 import bgVidPic from './assets/img/when-no-video.png'
@@ -50,9 +50,6 @@ const App: React.FC = () => {
           </Route>
           <Route path="/farms">
             <Farms />
-          </Route>
-          <Route path="/staking">
-            <Stake />
           </Route>
         </Switch>
       </Router>
