@@ -15,6 +15,7 @@ import Farms from './views/Farms'
 import Home from './views/Home'
 import Stake from './views/Stake'
 import bgVid from './assets/img/background-vid.mp4'
+import bgVidWebM from './assets/vid/background-vid.webm'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -35,10 +36,11 @@ const App: React.FC = () => {
         <video
           playsInline={true}
           autoPlay={true}
-          muted={true}
+          muted={false}
           loop={true}
           poster="polina.jpg"
           id="bgvid">
+          <source src={bgVidWebM} type="video/webm" />
           <source src={bgVid} type="video/mp4" />
         </video>
         <Switch>

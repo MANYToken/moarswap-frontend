@@ -1,22 +1,20 @@
 import BigNumber from 'bignumber.js'
-import React, { useEffect, useState } from 'react'
-import Countdown, { CountdownRenderProps } from 'react-countdown'
-import styled, { keyframes } from 'styled-components'
-import { useWallet } from 'use-wallet'
+import React, {useEffect, useState} from 'react'
+import Countdown, {CountdownRenderProps} from 'react-countdown'
+import styled, {keyframes} from 'styled-components'
+import {useWallet} from 'use-wallet'
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
 import Loader from '../../../components/Loader'
 import Spacer from '../../../components/Spacer'
-import { Farm } from '../../../contexts/Farms'
-import useAllStakedValue, {
-  StakedValue,
-} from '../../../hooks/useAllStakedValue'
+import {Farm} from '../../../contexts/Farms'
+import useAllStakedValue, {StakedValue} from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useSushi from '../../../hooks/useSushi'
-import { getEarned, getMasterChefContract } from '../../../sushi/utils'
-import { bnToDec } from '../../../utils'
+import {getEarned, getMasterChefContract} from '../../../sushi/utils'
+import {bnToDec} from '../../../utils'
 
 interface FarmWithStakedValue extends Farm, StakedValue {
   apy: BigNumber
@@ -24,12 +22,10 @@ interface FarmWithStakedValue extends Farm, StakedValue {
 
 const FarmCards: React.FC = () => {
   const [farms] = useFarms()
-  const { account } = useWallet()
+  const {account} = useWallet()
   const stakedValue = useAllStakedValue()
 
-  const sushiIndex = farms.findIndex(
-    ({ tokenSymbol }) => tokenSymbol === 'SUSHI',
-  )
+  const sushiIndex = farms.findIndex(({tokenSymbol}) => tokenSymbol === 'MOAR')
 
   const sushiPrice =
     sushiIndex >= 0 && stakedValue[sushiIndex]
@@ -60,7 +56,7 @@ const FarmCards: React.FC = () => {
       }
       return newFarmRows
     },
-    [[]],
+    [[]]
   )
 
   return (
@@ -89,21 +85,21 @@ interface FarmCardProps {
   farm: FarmWithStakedValue
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
+const FarmCard: React.FC<FarmCardProps> = ({farm}) => {
   const [startTime, setStartTime] = useState(0)
   const [harvestable, setHarvestable] = useState(0)
 
-  const { account } = useWallet()
-  const { lpTokenAddress } = farm
+  const {account} = useWallet()
+  const {lpTokenAddress} = farm
   const sushi = useSushi()
 
   const renderer = (countdownProps: CountdownRenderProps) => {
-    const { hours, minutes, seconds } = countdownProps
+    const {hours, minutes, seconds} = countdownProps
     const paddedSeconds = seconds < 10 ? `0${seconds}` : seconds
     const paddedMinutes = minutes < 10 ? `0${minutes}` : minutes
     const paddedHours = hours < 10 ? `0${hours}` : hours
     return (
-      <span style={{ width: '100%' }}>
+      <span style={{width: '100%'}}>
         {paddedHours}:{paddedMinutes}:{paddedSeconds}
       </span>
     )
@@ -115,7 +111,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       const earned = await getEarned(
         getMasterChefContract(sushi),
         lpTokenAddress,
-        account,
+        account
       )
       setHarvestable(bnToDec(earned))
     }
@@ -142,8 +138,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             <Button
               disabled={!poolActive}
               text={poolActive ? 'Select' : undefined}
-              to={`/farms/${farm.id}`}
-            >
+              to={`/farms/${farm.id}`}>
               {!poolActive && (
                 <Countdown
                   date={new Date(startTime * 1000)}
@@ -183,7 +178,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 }
 
 const RainbowLight = keyframes`
-  
+
 	0% {
 		background-position: 0% 50%;
 	}
