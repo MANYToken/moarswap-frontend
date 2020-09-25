@@ -80,7 +80,7 @@ export const supportedPools = [
     name: 'MOAR Party!',
     symbol: 'MOAR-ETH UNI-V2 LP',
     tokenSymbol: 'MOAR',
-    icon: '🍣',
+    icon: '🗿',
   },
   {
     pid: 0,
