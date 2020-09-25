@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Container from '../Container'
+import Card from '../../components/Card'
 
 interface PageHeaderProps {
   icon: React.ReactNode
@@ -9,13 +10,21 @@ interface PageHeaderProps {
   title?: string
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ icon, subtitle, title }) => {
+const More = styled(Card)`
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+`
+
+const PageHeader: React.FC<PageHeaderProps> = ({icon, subtitle, title}) => {
   return (
-    <Container size="sm">
+    <Container size="md">
       <StyledPageHeader>
         <StyledIcon>{icon}</StyledIcon>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledSubtitle>{subtitle}</StyledSubtitle>
+        <More>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledSubtitle>{subtitle}</StyledSubtitle>
+        </More>
       </StyledPageHeader>
     </Container>
   )
@@ -33,10 +42,9 @@ const StyledPageHeader = styled.div`
 
 const StyledIcon = styled.div`
   font-size: 120px;
-  height: 120px;
+  height: 320px;
   line-height: 120px;
   text-align: center;
-  width: 120px;
 `
 
 const StyledTitle = styled.h1`
@@ -45,7 +53,8 @@ const StyledTitle = styled.h1`
   font-size: 36px;
   font-weight: 700;
   margin: 0;
-  padding: 0;
+  padding: 10px;
+  text-align: center;
 `
 
 const StyledSubtitle = styled.h3`
@@ -53,7 +62,7 @@ const StyledSubtitle = styled.h3`
   font-size: 18px;
   font-weight: 400;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   text-align: center;
 `
 

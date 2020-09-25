@@ -11,10 +11,8 @@ import Balances from './components/Balances'
 const Home: React.FC = () => {
   return (
     <Page>
-      <Spacer size="lg" />
-      <Spacer size="lg" />
       <PageHeader
-        icon={<img src={chadChef} height={120} />}
+        icon={<img src={chadChef} height={320} />}
         title="Moar is Ready"
         subtitle="Stake Uniswap LP tokens to claim your very own MOAR!"
       />
