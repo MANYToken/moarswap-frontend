@@ -14,8 +14,8 @@ const Nav: React.FC = () => {
         href="https://uniswap.info/pair/0x55a06945E79F2d6a14b5C4f18E8E73091e2E57D6">
         Uniswap MOAR-ETH
       </StyledLink>
-      <StyledLink target="_blank" href="https://discord.gg/hJ2p555">
-        Discord
+      <StyledLink target="_blank" href="https://t.me/manyunderstandthis">
+        Telegram
       </StyledLink>
       <StyledLink target="_blank" href="https://github.com/MANYToken">
         Github
@@ -37,6 +37,8 @@ const StyledLink = styled.a`
   padding-left: ${(props) => props.theme.spacing[3]}px;
   padding-right: ${(props) => props.theme.spacing[3]}px;
   text-decoration: none;
+  text-shadow: #1f1f21 2px 3px 0px;
+  font-size: 26px;
   &:hover {
     color: ${(props) => props.theme.color.grey[500]};
   }
