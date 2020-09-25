@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { ethers } from 'ethers'
+import {ethers} from 'ethers'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -53,16 +53,16 @@ export const getFarms = (sushi) => {
           tokenAddress,
           tokenSymbol,
           tokenContract,
-          earnToken: 'sushi',
+          earnToken: 'moar',
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
-        }),
+        })
       )
     : []
 }
 
 export const getPoolWeight = async (masterChefContract, pid) => {
-  const { allocPoint } = await masterChefContract.methods.poolInfo(pid).call()
+  const {allocPoint} = await masterChefContract.methods.poolInfo(pid).call()
   const totalAllocPoint = await masterChefContract.methods
     .totalAllocPoint()
     .call()
@@ -78,7 +78,7 @@ export const getTotalLPWethValue = async (
   wethContract,
   lpContract,
   tokenContract,
-  pid,
+  pid
 ) => {
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods
@@ -119,7 +119,7 @@ export const getTotalLPWethValue = async (
 export const approve = async (lpContract, masterChefContract, account) => {
   return lpContract.methods
     .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
-    .send({ from: account })
+    .send({from: account})
 }
 
 export const getSushiSupply = async (sushi) => {
@@ -130,9 +130,9 @@ export const stake = async (masterChefContract, pid, amount, account) => {
   return masterChefContract.methods
     .deposit(
       pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
     )
-    .send({ from: account })
+    .send({from: account})
     .on('transactionHash', (tx) => {
       console.log(tx)
       return tx.transactionHash
@@ -143,9 +143,9 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
   return masterChefContract.methods
     .withdraw(
       pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
     )
-    .send({ from: account })
+    .send({from: account})
     .on('transactionHash', (tx) => {
       console.log(tx)
       return tx.transactionHash
@@ -154,7 +154,7 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
 export const harvest = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
     .deposit(pid, '0')
-    .send({ from: account })
+    .send({from: account})
     .on('transactionHash', (tx) => {
       console.log(tx)
       return tx.transactionHash
@@ -163,7 +163,7 @@ export const harvest = async (masterChefContract, pid, account) => {
 
 export const getStaked = async (masterChefContract, pid, account) => {
   try {
-    const { amount } = await masterChefContract.methods
+    const {amount} = await masterChefContract.methods
       .userInfo(pid, account)
       .call()
     return new BigNumber(amount)
@@ -177,7 +177,7 @@ export const redeem = async (masterChefContract, account) => {
   if (now >= 1597172400) {
     return masterChefContract.methods
       .exit()
-      .send({ from: account })
+      .send({from: account})
       .on('transactionHash', (tx) => {
         console.log(tx)
         return tx.transactionHash

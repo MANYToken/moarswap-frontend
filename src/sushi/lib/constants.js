@@ -72,40 +72,40 @@ export const supportedPools = [
   {
     pid: 12,
     lpAddresses: {
-      1: '0xce84867c3c02b05dc570d0135103d3fb9cc19433',
+      1: '0x55a06945e79f2d6a14b5c4f18e8e73091e2e57d6',
     },
     tokenAddresses: {
-      1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
+      1: '0xab7aaf9e485a3bc885985184abe9fc6aba727bd6',
     },
-    name: 'MOAR Party!',
-    symbol: 'MOAR-ETH UNI-V2 LP',
+    name: '$MANY MEN',
+    symbol: 'MANY-ETH UNI-V2 LP',
     tokenSymbol: 'MOAR',
     icon: '🗿',
   },
   {
     pid: 0,
     lpAddresses: {
-      1: '0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852',
+      1: '0x55a06945e79f2d6a14b5c4f18e8e73091e2e57d6',
     },
     tokenAddresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+      1: '0xbf131dcbe3436dab8a7c82d9c3666d652ca38eab',
     },
-    name: 'Tether Turtle',
-    symbol: 'USDT-ETH UNI-V2 LP',
-    tokenSymbol: 'USDT',
-    icon: '🐢',
+    name: '$MANY MOAR',
+    symbol: 'MANY-MOAR UNI-V2 LP',
+    tokenSymbol: '',
+    icon: '🏋',
   },
   {
     pid: 1,
     lpAddresses: {
-      1: '0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc',
+      1: '0x55a06945e79f2d6a14b5c4f18e8e73091e2e57d6',
     },
     tokenAddresses: {
-      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+      1: '0xbf131dcbe3436dab8a7c82d9c3666d652ca38eab',
     },
-    name: 'Circle Snail',
-    symbol: 'USDC-ETH UNI-V2 LP',
-    tokenSymbol: 'USDC',
+    name: 'MORE $MOAR',
+    symbol: 'ETH-MOAR UNI-V2 LP',
+    tokenSymbol: 'MOAR',
     icon: '🐌',
   },
 ]

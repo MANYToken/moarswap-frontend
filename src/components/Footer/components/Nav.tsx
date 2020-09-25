@@ -11,16 +11,16 @@ const Nav: React.FC = () => {
       </StyledLink>
       <StyledLink
         target="_blank"
-        href="https://uniswap.info/pair/0xce84867c3c02b05dc570d0135103d3fb9cc19433">
+        href="https://uniswap.info/pair/0x55a06945E79F2d6a14b5C4f18E8E73091e2E57D6">
         Uniswap MOAR-ETH
       </StyledLink>
       <StyledLink target="_blank" href="https://discord.gg/hJ2p555">
         Discord
       </StyledLink>
-      <StyledLink target="_blank" href="https://github.com/sushiswap">
+      <StyledLink target="_blank" href="https://github.com/MANYToken">
         Github
       </StyledLink>
-      <StyledLink target="_blank" href="https://twitter.com/sushiswap">
+      <StyledLink target="_blank" href="https://twitter.com/MANYTOKEN">
         Twitter
       </StyledLink>
     </StyledNav>
