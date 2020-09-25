@@ -26,6 +26,7 @@ video {
 	position:fixed;
 	bottom:0;
 	right: 0;
+	cursor: pointer;
 	padding-right: 10px;
 	padding-bottom: 10px;
 }
