@@ -16,6 +16,7 @@ import Home from './views/Home'
 import Stake from './views/Stake'
 import bgVid from './assets/img/background-vid.mp4'
 import bgVidWebM from './assets/vid/background-vid.webm'
+import bgVidPic from './assets/img/when-no-video.png'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -38,7 +39,7 @@ const App: React.FC = () => {
           autoPlay={true}
           muted={false}
           loop={true}
-          poster="polina.jpg"
+          poster={bgVidPic}
           id="bgvid">
           <source src={bgVidWebM} type="video/webm" />
           <source src={bgVid} type="video/mp4" />
