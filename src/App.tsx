@@ -40,35 +40,21 @@ const App: React.FC = () => {
       <Router>
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
-        {use_looping_video === false ? (
-          <video
-            playsInline={true}
-            autoPlay={true}
-            muted={false}
-            loop={false}
-            controls={false}
-            poster={bgVidPic}
-            onEnded={function (el) {
-              set_use_looping_vid(true)
-            }}
-            id="bgvid">
-            <source src={bgVidOpening} type="video/webm" />
-            <source src={bgVidWebMOpening} type="video/mp4" />
-          </video>
-        ) : null}
-        {use_looping_video === true ? (
-          <video
-            playsInline={true}
-            autoPlay={true}
-            muted={false}
-            loop={true}
-            controls={false}
-            poster={bgVidPic}
-            id="bgvid">
-            <source src={bgVidLoop} type="video/webm" />
-            <source src={bgVidWebMLoop} type="video/mp4" />
-          </video>
-        ) : null}
+
+        <video
+          playsInline={true}
+          autoPlay={true}
+          muted={false}
+          loop={false}
+          controls={false}
+          poster={bgVidPic}
+          onEnded={function (el) {
+            el.currentTarget.src = bgVidLoop
+          }}
+          id="bgvid">
+          <source src={bgVidOpening} type="video/webm" />
+          <source src={bgVidWebMOpening} type="video/mp4" />
+        </video>
 
         <Switch>
           <Route path="/" exact>
