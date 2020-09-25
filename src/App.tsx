@@ -14,12 +14,19 @@ import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
 
-import bgVid from './assets/img/background-vid.mp4'
-import bgVidWebM from './assets/vid/background-vid.webm'
+import bgVidLoop from './assets/vid/background-vid-loop.mp4'
+import bgVidWebMLoop from './assets/vid/background-vid-loop.webm'
+
+import bgVidOpening from './assets/vid/background-vid-opening.mp4'
+import bgVidWebMOpening from './assets/vid/background-vid-opening.webm'
+
 import bgVidPic from './assets/img/when-no-video.png'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
+
+  const [use_looping_video, set_use_looping_vid] = useState(false)
+
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)
   }, [setMobileMenu])
@@ -33,20 +40,36 @@ const App: React.FC = () => {
       <Router>
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
-        <video
-          playsInline={true}
-          autoPlay={true}
-          muted={false}
-          loop={false}
-          controls={false}
-          poster={bgVidPic}
-          onEnded={function (el) {
-            el.currentTarget.currentTime = 25
-          }}
-          id="bgvid">
-          <source src={bgVidWebM} type="video/webm" />
-          <source src={bgVid} type="video/mp4" />
-        </video>
+        {use_looping_video === false ? (
+          <video
+            playsInline={true}
+            autoPlay={true}
+            muted={false}
+            loop={false}
+            controls={false}
+            poster={bgVidPic}
+            onEnded={function (el) {
+              set_use_looping_vid(true)
+            }}
+            id="bgvid">
+            <source src={bgVidOpening} type="video/webm" />
+            <source src={bgVidWebMOpening} type="video/mp4" />
+          </video>
+        ) : null}
+        {use_looping_video === true ? (
+          <video
+            playsInline={true}
+            autoPlay={true}
+            muted={false}
+            loop={true}
+            controls={false}
+            poster={bgVidPic}
+            id="bgvid">
+            <source src={bgVidLoop} type="video/webm" />
+            <source src={bgVidWebMLoop} type="video/mp4" />
+          </video>
+        ) : null}
+
         <Switch>
           <Route path="/" exact>
             <Home />
