@@ -22,10 +22,15 @@ import bgVidWebMOpening from './assets/vid/background-vid-opening.webm'
 
 import bgVidPic from './assets/img/when-no-video.png'
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faVolumeOff, faVolumeUp} from '@fortawesome/free-solid-svg-icons'
+
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
 
   const [use_looping_video, set_use_looping_vid] = useState(false)
+
+  const [muted, set_mute] = useState(false)
 
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)
@@ -41,10 +46,18 @@ const App: React.FC = () => {
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
 
+        <FontAwesomeIcon
+          icon={muted ? faVolumeOff : faVolumeUp}
+          className={'mute-icon'}
+          size={'2x'}
+          onClick={() => {
+            set_mute(!muted)
+          }}
+        />
         <video
           playsInline={true}
           autoPlay={true}
-          muted={false}
+          muted={muted}
           loop={false}
           controls={false}
           poster={bgVidPic}
