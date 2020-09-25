@@ -29,8 +29,7 @@ const Home: React.FC = () => {
       <div
         style={{
           margin: '0 auto',
-        }}
-      >
+        }}>
         <Button text="🔪 See the Menu" to="/farms" variant="secondary" />
       </div>
     </Page>

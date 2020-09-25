@@ -31,7 +31,7 @@ export class Contracts {
         tokenAddress: pool.tokenAddresses[networkId],
         lpContract: new this.web3.eth.Contract(UNIV2PairAbi),
         tokenContract: new this.web3.eth.Contract(ERC20Abi),
-      }),
+      })
     )
 
     this.setProvider(provider, networkId)
@@ -50,10 +50,10 @@ export class Contracts {
     setProvider(this.weth, contractAddresses.weth[networkId])
 
     this.pools.forEach(
-      ({ lpContract, lpAddress, tokenContract, tokenAddress }) => {
+      ({lpContract, lpAddress, tokenContract, tokenAddress}) => {
         setProvider(lpContract, lpAddress)
         setProvider(tokenContract, tokenAddress)
-      },
+      }
     )
   }
 
@@ -91,9 +91,9 @@ export class Contracts {
           gasEstimate = await method.estimateGas(txOptions)
         } catch (error) {
           const data = method.encodeABI()
-          const { from, value } = options
+          const {from, value} = options
           const to = method._parent._address
-          error.transactionData = { from, value, data, to }
+          error.transactionData = {from, value, data, to}
           throw error
         }
 
@@ -105,7 +105,7 @@ export class Contracts {
 
       if (confirmationType === Types.ConfirmationType.Simulate) {
         let g = txOptions.gas
-        return { gasEstimate, g }
+        return {gasEstimate, g}
       }
     }
 
@@ -209,7 +209,7 @@ export class Contracts {
       if (this.notifier) {
         this.notifier.hash(transactionHash)
       }
-      return { transactionHash }
+      return {transactionHash}
     }
 
     if (t === Types.ConfirmationType.Confirmed) {
@@ -228,7 +228,7 @@ export class Contracts {
 
   async callConstantContractFunction(method, options) {
     const m2 = method
-    const { blockNumber, ...txOptions } = options
+    const {blockNumber, ...txOptions} = options
     return m2.call(txOptions, blockNumber)
   }
 

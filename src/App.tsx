@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
-import { UseWalletProvider } from 'use-wallet'
+import React, {useCallback, useEffect, useState} from 'react'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {ThemeProvider} from 'styled-components'
+import {UseWalletProvider} from 'use-wallet'
 import DisclaimerModal from './components/DisclaimerModal'
 import MobileMenu from './components/MobileMenu'
 import TopBar from './components/TopBar'
@@ -14,6 +14,7 @@ import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
 import Stake from './views/Stake'
+import bgVid from './assets/img/background-vid.mp4';
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -31,32 +32,40 @@ const App: React.FC = () => {
       <Router>
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/farms">
-            <Farms />
-          </Route>
-          <Route path="/staking">
-            <Stake />
-          </Route>
-        </Switch>
+        <video
+          playsInline={true}
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          poster="polina.jpg"
+          id="bgvid">
+          <source src={bgVid} type="video/mp4" />
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/farms">
+              <Farms />
+            </Route>
+            <Route path="/staking">
+              <Stake />
+            </Route>
+          </Switch>
+        </video>
       </Router>
       <Disclaimer />
     </Providers>
   )
 }
 
-const Providers: React.FC = ({ children }) => {
+const Providers: React.FC = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <UseWalletProvider
         chainId={1}
         connectors={{
-          walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
-        }}
-      >
+          walletconnect: {rpcUrl: 'https://mainnet.eth.aragon.network/'},
+        }}>
         <SushiProvider>
           <TransactionProvider>
             <FarmsProvider>
@@ -75,7 +84,7 @@ const Disclaimer: React.FC = () => {
   }, [])
 
   const [onPresentDisclaimerModal] = useModal(
-    <DisclaimerModal onConfirm={markSeen} />,
+    <DisclaimerModal onConfirm={markSeen} />
   )
 
   useEffect(() => {
