@@ -20,7 +20,6 @@ import bgVidPic from './assets/img/when-no-video.png'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
-
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)
   }, [setMobileMenu])
@@ -38,8 +37,12 @@ const App: React.FC = () => {
           playsInline={true}
           autoPlay={true}
           muted={false}
-          loop={true}
+          loop={false}
+          controls={false}
           poster={bgVidPic}
+          onEnded={function (el) {
+            el.currentTarget.currentTime = 25
+          }}
           id="bgvid">
           <source src={bgVidWebM} type="video/webm" />
           <source src={bgVid} type="video/mp4" />

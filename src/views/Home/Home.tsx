@@ -11,12 +11,13 @@ import Balances from './components/Balances'
 const Home: React.FC = () => {
   return (
     <Page>
+      <Spacer size="lg" />
+      <Spacer size="lg" />
       <PageHeader
         icon={<img src={chadChef} height={120} />}
         title="Moar is Ready"
         subtitle="Stake Uniswap LP tokens to claim your very own MOAR!"
       />
-
       <Container>
         <Balances />
       </Container>
@@ -25,6 +26,7 @@ const Home: React.FC = () => {
         🏆<b>Pro Tip</b>: MOAR-MANY UNI-V2 LP token pool yields TWICE more token
         rewards per block.
       </StyledInfo>
+      <Spacer size="lg" />
       <Spacer size="lg" />
       <div
         style={{
