@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import chef from '../../assets/img/chef.png'
+import chadChef from '../../assets/img/chefchad.png'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
 import Page from '../../components/Page'
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   return (
     <Page>
       <PageHeader
-        icon={<img src={chef} height={120} />}
+        icon={<img src={chadChef} height={120} />}
         title="Moar is Ready"
         subtitle="Stake Uniswap LP tokens to claim your very own MOAR!"
       />
