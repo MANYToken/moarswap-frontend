@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   const [use_looping_video, set_use_looping_vid] = useState(false)
 
-  const [muted, set_mute] = useState(true)
+  const [muted, set_mute] = useState(false)
 
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)
