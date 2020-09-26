@@ -25,7 +25,6 @@ const Home: React.FC = () => {
         rewards per block.
       </StyledInfo>
       <Spacer size="lg" />
-      <Spacer size="lg" />
       <div
         style={{
           margin: '0 auto',
