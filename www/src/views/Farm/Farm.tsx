@@ -1,20 +1,20 @@
-import React, { useEffect, useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import React, {useEffect, useMemo} from 'react'
+import {useParams} from 'react-router-dom'
 import styled from 'styled-components'
-import { useWallet } from 'use-wallet'
-import { provider } from 'web3-core'
+import {useWallet} from 'use-wallet'
+import {provider} from 'web3-core'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import useFarm from '../../hooks/useFarm'
 import useRedeem from '../../hooks/useRedeem'
 import useSushi from '../../hooks/useSushi'
-import { getMasterChefContract } from '../../sushi/utils'
-import { getContract } from '../../utils/erc20'
+import {getMasterChefContract} from '../../sushi/utils'
+import {getContract} from '../../utils/erc20'
 import Harvest from './components/Harvest'
 import Stake from './components/Stake'
 
 const Farm: React.FC = () => {
-  const { farmId } = useParams()
+  const {farmId} = useParams()
   const {
     pid,
     lpToken,
@@ -38,13 +38,13 @@ const Farm: React.FC = () => {
   }, [])
 
   const sushi = useSushi()
-  const { ethereum } = useWallet()
+  const {ethereum} = useWallet()
 
   const lpContract = useMemo(() => {
     return getContract(ethereum as provider, lpTokenAddress)
   }, [ethereum, lpTokenAddress])
 
-  const { onRedeem } = useRedeem(getMasterChefContract(sushi))
+  const {onRedeem} = useRedeem(getMasterChefContract(sushi))
 
   const lpTokenName = useMemo(() => {
     return lpToken.toUpperCase()
@@ -78,7 +78,7 @@ const Farm: React.FC = () => {
         <Spacer size="lg" />
         <StyledInfo>
           ⭐️ Every time you stake and unstake LP tokens, the contract will
-          automagically harvest SUSHI rewards for you!
+          automagically harvest MOAR rewards for you!
         </StyledInfo>
         <Spacer size="lg" />
       </StyledFarm>
