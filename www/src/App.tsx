@@ -60,7 +60,7 @@ const App: React.FC = () => {
 
   return (
     <Providers>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <FontAwesomeIcon
