@@ -28,7 +28,7 @@ const Farms: React.FC = () => {
               <PageHeader
                 icon={<img src={chadChef} height="320" />}
                 subtitle="Earn MOAR tokens by staking Uniswap V2 LP Tokens."
-                title="Select Your Favorite Dishes"
+                title="Choose your gains"
               />
               <FarmCards />
             </Route>

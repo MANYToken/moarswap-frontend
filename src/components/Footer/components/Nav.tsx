@@ -7,7 +7,7 @@ const Nav: React.FC = () => {
       <StyledLink
         target="_blank"
         href="https://etherscan.io/address/0xc2edad668740f1aa35e4d8f227fb8e17dca888cd#code">
-        MasterChef Contract
+        ChadChef Contract
       </StyledLink>
       <StyledLink
         target="_blank"
@@ -44,8 +44,9 @@ const StyledLink = styled.a`
   padding-left: ${(props) => props.theme.spacing[3]}px;
   padding-right: ${(props) => props.theme.spacing[3]}px;
   text-decoration: none;
-  text-shadow: #1f1f21 2px 3px 0px;
-  font-size: 26px;
+  text-shadow: #5b3926 2px 3px 0px;
+  font-weight: 700;
+  font-size: 24px;
   &:hover {
     color: ${(props) => props.theme.color.grey[500]};
   }
