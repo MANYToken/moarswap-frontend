@@ -106,7 +106,7 @@ const Providers: React.FC = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <UseWalletProvider
-        chainId={process.env.NODE_ENV === 'development' ? 1337 : 1}
+        chainId={1}
         connectors={{
           walletconnect: {rpcUrl: 'https://mainnet.eth.aragon.network/'},
         }}>

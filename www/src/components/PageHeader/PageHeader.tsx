@@ -13,6 +13,7 @@ interface PageHeaderProps {
 const More = styled(Card)`
   display: flex;
   justify-content: center;
+  align-item: center;
   padding: 100px;
 `
 
@@ -36,13 +37,16 @@ const StyledPageHeader = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: ${(props) => props.theme.spacing[6]}px;
-  padding-top: ${(props) => props.theme.spacing[6]}px;
+  padding-top: ${(props) => props.theme.spacing[4]}px;
   margin: 0 auto;
 `
 
 const StyledIcon = styled.div`
   font-size: 120px;
   height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   line-height: 120px;
   text-align: center;
 `
