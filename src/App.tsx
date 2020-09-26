@@ -40,12 +40,29 @@ const App: React.FC = () => {
     setMobileMenu(true)
   }, [setMobileMenu])
 
+  const other_vid = (
+    <video
+      playsInline={true}
+      autoPlay={true}
+      preload={'auto'}
+      muted={muted || use_looping_video === false}
+      loop={false}
+      controls={false}
+      onEnded={function (el) {
+        el.currentTarget.currentTime = 0.04
+        el.currentTarget.play()
+      }}
+      id={'bgvid'}>
+      <source src={bgVidLoop} type="video/webm" />
+      <source src={bgVidWebMLoop} type="video/mp4" />
+    </video>
+  )
+
   return (
     <Providers>
       <Router>
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
-
         <FontAwesomeIcon
           icon={muted ? faVolumeOff : faVolumeUp}
           className={'mute-icon'}
@@ -54,6 +71,7 @@ const App: React.FC = () => {
             set_mute(!muted)
           }}
         />
+        {other_vid}
         <video
           playsInline={true}
           autoPlay={true}
@@ -62,7 +80,8 @@ const App: React.FC = () => {
           controls={false}
           poster={bgVidPic}
           onEnded={function (el) {
-            el.currentTarget.src = bgVidLoop
+            el.currentTarget.style.display = 'none'
+            set_use_looping_vid(true)
           }}
           id="bgvid">
           <source src={bgVidOpening} type="video/webm" />
