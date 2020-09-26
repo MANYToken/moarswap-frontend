@@ -12,7 +12,7 @@ const Nav: React.FC = () => {
       <StyledLink
         target="_blank"
         href="https://uniswap.info/pair/0x55a06945E79F2d6a14b5C4f18E8E73091e2E57D6">
-        Uniswap MOAR-ETH
+        Uniswap MANY-ETH
       </StyledLink>
       <StyledLink target="_blank" href="https://t.me/manyunderstandthis">
         Telegram
