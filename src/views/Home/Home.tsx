@@ -47,6 +47,10 @@ const StyledInfo = styled.h3`
   > b {
     color: ${(props) => props.theme.color.grey[600]};
   }
+  @media (max-width: 400px) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 `
 
 export default Home
