@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   const [use_looping_video, set_use_looping_vid] = useState(false)
 
-  const [muted, set_mute] = useState(false)
+  const [muted, set_mute] = useState(true)
 
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)
@@ -106,7 +106,7 @@ const Providers: React.FC = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <UseWalletProvider
-        chainId={1}
+        chainId={process.env.NODE_ENV === 'development' ? 1337 : 1}
         connectors={{
           walletconnect: {rpcUrl: 'https://mainnet.eth.aragon.network/'},
         }}>
