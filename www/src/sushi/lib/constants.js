@@ -46,7 +46,7 @@ export const supportedPools = [
     },
     name: '$MANY MEN',
     symbol: 'MANY-ETH UNI-V2 LP',
-    tokenSymbol: 'MANY',
+    tokenSymbol: 'MOAR',
     icon: '🗿',
   },
   {
@@ -59,7 +59,7 @@ export const supportedPools = [
     },
     name: '$MANY MOAR',
     symbol: 'MANY-MOAR UNI-V2 LP',
-    tokenSymbol: '',
+    tokenSymbol: 'MOAR',
     icon: '🏋',
   },
   {
