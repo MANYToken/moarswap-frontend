@@ -107,7 +107,8 @@ const Balances: React.FC = () => {
           />
         </CardContent>
         <Footnote>
-          <FootnoteValue></FootnoteValue>
+          {' '}
+          <FootnoteValue>{'-'}</FootnoteValue>
         </Footnote>
       </Card>
     </StyledWrapper>
