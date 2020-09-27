@@ -49,12 +49,11 @@ const App: React.FC = () => {
       loop={false}
       controls={false}
       onEnded={function (el) {
-        el.currentTarget.currentTime = 0.04
+        el.currentTarget.currentTime = 0.035
         el.currentTarget.play()
-      }}
-      id={'bgvid'}>
-      <source src={bgVidLoop} type="video/webm" />
-      <source src={bgVidWebMLoop} type="video/mp4" />
+      }}>
+      <source src={bgVidLoop} type="video/mp4" />
+      <source src={bgVidWebMLoop} type="video/webm" />
     </video>
   )
 
@@ -78,14 +77,12 @@ const App: React.FC = () => {
           muted={muted}
           loop={false}
           controls={false}
-          poster={bgVidPic}
           onEnded={function (el) {
             el.currentTarget.style.display = 'none'
             set_use_looping_vid(true)
-          }}
-          id="bgvid">
-          <source src={bgVidOpening} type="video/webm" />
-          <source src={bgVidWebMOpening} type="video/mp4" />
+          }}>
+          <source src={bgVidOpening} type="video/mp4" />
+          <source src={bgVidWebMOpening} type="video/webm" />
         </video>
 
         <Switch>
