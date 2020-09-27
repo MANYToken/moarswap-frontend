@@ -1,11 +1,11 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 export interface ModalProps {
   onDismiss?: () => void
 }
 
-const Modal: React.FC = ({ children }) => {
+const Modal: React.FC = ({children}) => {
   return (
     <StyledResponsiveWrapper>
       <StyledModal>{children}</StyledModal>
@@ -53,7 +53,5 @@ const StyledModal = styled.div`
   width: 100%;
   min-height: 0;
 `
-
-const StyledModalContent = styled.div``
 
 export default Modal

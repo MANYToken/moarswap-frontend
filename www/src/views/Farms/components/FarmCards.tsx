@@ -22,7 +22,7 @@ interface FarmWithStakedValue extends Farm, StakedValue {
 
 const FarmCards: React.FC = () => {
   const [farms] = useFarms()
-  const {account} = useWallet()
+
   const stakedValue = useAllStakedValue()
 
   const sushiIndex = farms.findIndex(({tokenSymbol}) => tokenSymbol === 'MOAR')
@@ -56,7 +56,7 @@ const FarmCards: React.FC = () => {
       }
       return newFarmRows
     },
-    [[]],
+    [[]]
   )
 
   return (
@@ -86,8 +86,8 @@ interface FarmCardProps {
 }
 
 const FarmCard: React.FC<FarmCardProps> = ({farm}) => {
-  const [startTime, setStartTime] = useState(0)
-  const [harvestable, setHarvestable] = useState(0)
+  const [startTime] = useState(0)
+  const [, setHarvestable] = useState(0)
 
   const {account} = useWallet()
   const {lpTokenAddress} = farm
@@ -111,7 +111,7 @@ const FarmCard: React.FC<FarmCardProps> = ({farm}) => {
       const earned = await getEarned(
         getMasterChefContract(sushi),
         lpTokenAddress,
-        account,
+        account
       )
       setHarvestable(bnToDec(earned))
     }
@@ -138,8 +138,7 @@ const FarmCard: React.FC<FarmCardProps> = ({farm}) => {
             <Button
               disabled={!poolActive}
               text={poolActive ? 'Select' : undefined}
-              to={`/farms/${farm.id}`}
-            >
+              to={`/farms/${farm.id}`}>
               {!poolActive && (
                 <Countdown
                   date={new Date(startTime * 1000)}
