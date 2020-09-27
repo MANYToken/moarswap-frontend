@@ -77,6 +77,7 @@ const App: React.FC = () => {
           muted={muted}
           loop={false}
           controls={false}
+          poster={bgVidPic}
           onEnded={function (el) {
             el.currentTarget.style.display = 'none'
             set_use_looping_vid(true)
