@@ -37,7 +37,7 @@ export const contractAddresses = {
 // DO NOT CHANGE THESE PIDS
 export const supportedPools = [
   {
-    pid: 12,
+    pid: 2,
     lpAddresses: {
       1: '0x55a06945e79f2d6a14b5c4f18e8e73091e2e57d6',
     },
