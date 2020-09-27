@@ -56,7 +56,7 @@ const FarmCards: React.FC = () => {
       }
       return newFarmRows
     },
-    [[]]
+    [[]],
   )
 
   return (
@@ -74,7 +74,7 @@ const FarmCards: React.FC = () => {
         ))
       ) : (
         <StyledLoadingWrapper>
-          <Loader text="Cooking the rice ..." />
+          <Loader text="MOAR MOAR ..." />
         </StyledLoadingWrapper>
       )}
     </StyledCards>
@@ -111,7 +111,7 @@ const FarmCard: React.FC<FarmCardProps> = ({farm}) => {
       const earned = await getEarned(
         getMasterChefContract(sushi),
         lpTokenAddress,
-        account
+        account,
       )
       setHarvestable(bnToDec(earned))
     }
@@ -138,7 +138,8 @@ const FarmCard: React.FC<FarmCardProps> = ({farm}) => {
             <Button
               disabled={!poolActive}
               text={poolActive ? 'Select' : undefined}
-              to={`/farms/${farm.id}`}>
+              to={`/farms/${farm.id}`}
+            >
               {!poolActive && (
                 <Countdown
                   date={new Date(startTime * 1000)}

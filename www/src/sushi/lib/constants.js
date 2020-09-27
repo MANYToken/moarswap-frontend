@@ -17,7 +17,7 @@ export const INTEGERS = {
   ONES_31: new BigNumber('4294967295'), // 2**32-1
   ONES_127: new BigNumber('340282366920938463463374607431768211455'), // 2**128-1
   ONES_255: new BigNumber(
-    '115792089237316195423570985008687907853269984665640564039457584007913129639935'
+    '115792089237316195423570985008687907853269984665640564039457584007913129639935',
   ), // 2**256-1
   INTEREST_RATE_BASE: new BigNumber('1e18'),
 }
@@ -85,7 +85,7 @@ export const supportedPools = [
   {
     pid: 0,
     lpAddresses: {
-      1: '0x55a06945e79f2d6a14b5c4f18e8e73091e2e57d6',
+      1: '0xb1a6876ad98fba649a66be916559039abdd3dbbe',
     },
     tokenAddresses: {
       1: '0xbf131dcbe3436dab8a7c82d9c3666d652ca38eab',
@@ -98,7 +98,7 @@ export const supportedPools = [
   {
     pid: 1,
     lpAddresses: {
-      1: '0x55a06945e79f2d6a14b5c4f18e8e73091e2e57d6',
+      1: '0x10b4bbb2773ab474e9bcb4d71acf5b8625dff9f0',
     },
     tokenAddresses: {
       1: '0xbf131dcbe3436dab8a7c82d9c3666d652ca38eab',
