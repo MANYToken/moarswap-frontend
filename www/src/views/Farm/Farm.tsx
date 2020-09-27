@@ -6,7 +6,6 @@ import {provider} from 'web3-core'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import useFarm from '../../hooks/useFarm'
-import useRedeem from '../../hooks/useRedeem'
 import useSushi from '../../hooks/useSushi'
 import {getMasterChefContract} from '../../sushi/utils'
 import {getContract} from '../../utils/erc20'
@@ -43,8 +42,6 @@ const Farm: React.FC = () => {
   const lpContract = useMemo(() => {
     return getContract(ethereum as provider, lpTokenAddress)
   }, [ethereum, lpTokenAddress])
-
-  const {onRedeem} = useRedeem(getMasterChefContract(sushi))
 
   const lpTokenName = useMemo(() => {
     return lpToken.toUpperCase()

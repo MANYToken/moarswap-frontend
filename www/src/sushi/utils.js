@@ -49,7 +49,7 @@ export const getFarms = (sushi) => {
           earnToken: 'moar',
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
-        })
+        }),
       )
     : []
 }
@@ -71,7 +71,7 @@ export const getTotalLPWethValue = async (
   wethContract,
   lpContract,
   tokenContract,
-  pid
+  pid,
 ) => {
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods
@@ -123,7 +123,7 @@ export const stake = async (masterChefContract, pid, amount, account) => {
   return masterChefContract.methods
     .deposit(
       pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
     )
     .send({from: account})
     .on('transactionHash', (tx) => {
@@ -136,7 +136,7 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
   return masterChefContract.methods
     .withdraw(
       pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
+      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
     )
     .send({from: account})
     .on('transactionHash', (tx) => {
@@ -162,20 +162,5 @@ export const getStaked = async (masterChefContract, pid, account) => {
     return new BigNumber(amount)
   } catch {
     return new BigNumber(0)
-  }
-}
-
-export const redeem = async (masterChefContract, account) => {
-  let now = new Date().getTime() / 1000
-  if (now >= 1597172400) {
-    return masterChefContract.methods
-      .exit()
-      .send({from: account})
-      .on('transactionHash', (tx) => {
-        console.log(tx)
-        return tx.transactionHash
-      })
-  } else {
-    alert('pool not active')
   }
 }
