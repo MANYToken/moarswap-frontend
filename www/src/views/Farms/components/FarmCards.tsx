@@ -46,6 +46,7 @@ const FarmCards: React.FC = () => {
               .div(stakedValue[i].totalWethValue)
           : null,
       }
+
       const newFarmRows = [...farmRows]
       if (newFarmRows[newFarmRows.length - 1].length === 3) {
         newFarmRows.push([farmWithStakedValue])

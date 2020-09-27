@@ -31,7 +31,7 @@ const StyledNav = styled.nav`
   align-items: center;
   display: flex;
   @media (max-width: 400px) {
-    padding-top: 350px;
+    margin-top: 350px;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -52,8 +52,8 @@ const StyledLink = styled.a`
   }
 
   @media (max-width: 400px) {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `
 
