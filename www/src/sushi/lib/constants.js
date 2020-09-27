@@ -43,7 +43,7 @@ export const contractAddresses = {
     1: '0xBf131dCbE3436dab8a7c82D9C3666d652ca38eaB',
   },
   masterChef: {
-    1: '0xc2edad668740f1aa35e4d8f227fb8e17dca888cd',
+    1: '0xcFF6540c125f9dEc2C5427b60E89816e840b25Ec',
   },
   weth: {
     1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -79,7 +79,7 @@ export const supportedPools = [
     },
     name: '$MANY MEN',
     symbol: 'MANY-ETH UNI-V2 LP',
-    tokenSymbol: 'MOAR',
+    tokenSymbol: 'MANY',
     icon: '🗿',
   },
   {
