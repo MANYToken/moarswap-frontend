@@ -1,4 +1,4 @@
-import { Contract } from 'web3-eth-contract'
+import {Contract} from 'web3-eth-contract'
 
 export interface Farm {
   pid: number
@@ -12,6 +12,8 @@ export interface Farm {
   icon: React.ReactNode
   id: string
   tokenSymbol: string
+  add_lp: string
+  pair_url: string
 }
 
 export interface FarmsContext {

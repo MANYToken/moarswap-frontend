@@ -13,9 +13,17 @@ import Stake from './components/Stake'
 
 const Farm: React.FC = () => {
   const {farmId} = useParams()
-  const {pid, lpToken, lpTokenAddress, earnToken, name, icon} = useFarm(
-    farmId
-  ) || {
+  // @ts-ignore
+  const {
+    pid,
+    lpToken,
+    lpTokenAddress,
+    earnToken,
+    name,
+    icon,
+    add_lp,
+    pair_url,
+  } = useFarm(farmId) || {
     pid: 0,
     lpToken: '',
     lpTokenAddress: '',
@@ -23,6 +31,8 @@ const Farm: React.FC = () => {
     earnToken: '',
     name: '',
     icon: '',
+    add_lp: '',
+    pair_url: '',
   }
 
   useEffect(() => {
@@ -47,8 +57,10 @@ const Farm: React.FC = () => {
     <>
       <PageHeader
         icon={icon}
-        subtitle={`Deposit ${lpTokenName}  Tokens and earn ${earnTokenName}`}
+        subtitle={`Deposit ${lpTokenName} Tokens and earn ${earnTokenName}`}
         title={name}
+        pair_url={pair_url}
+        add_lp={add_lp}
       />
       <StyledFarm>
         <StyledCardsWrapper>

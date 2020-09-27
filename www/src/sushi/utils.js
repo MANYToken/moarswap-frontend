@@ -36,8 +36,11 @@ export const getFarms = (sushi) => {
           tokenContract,
           lpAddress,
           lpContract,
+          add_lp,
+          pair_url,
         }) => ({
           pid,
+          pair_url,
           id: symbol,
           name,
           lpToken: symbol,
@@ -49,7 +52,8 @@ export const getFarms = (sushi) => {
           earnToken: 'moar',
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
-        }),
+          add_lp,
+        })
       )
     : []
 }
@@ -71,7 +75,7 @@ export const getTotalLPWethValue = async (
   wethContract,
   lpContract,
   tokenContract,
-  pid,
+  pid
 ) => {
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods
@@ -123,7 +127,7 @@ export const stake = async (masterChefContract, pid, amount, account) => {
   return masterChefContract.methods
     .deposit(
       pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
     )
     .send({from: account})
     .on('transactionHash', (tx) => {
@@ -136,7 +140,7 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
   return masterChefContract.methods
     .withdraw(
       pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
     )
     .send({from: account})
     .on('transactionHash', (tx) => {

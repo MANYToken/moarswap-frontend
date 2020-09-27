@@ -8,6 +8,8 @@ interface PageHeaderProps {
   icon: React.ReactNode
   subtitle?: string
   title?: string
+  add_lp?: string
+  pair_url?: string
 }
 
 const More = styled(Card)`
@@ -17,13 +19,20 @@ const More = styled(Card)`
   padding: 100px;
 `
 
-const PageHeader: React.FC<PageHeaderProps> = ({icon, subtitle, title}) => {
+const PageHeader: React.FC<PageHeaderProps> = ({
+  icon,
+  subtitle,
+  title,
+  pair_url,
+}) => {
   return (
     <Container size="md">
       <StyledPageHeader>
         <StyledIcon>{icon}</StyledIcon>
         <More>
-          <StyledTitle>{title}</StyledTitle>
+          <StyledTitle>
+            <a href={pair_url}>{title}</a>
+          </StyledTitle>
           <StyledSubtitle>{subtitle}</StyledSubtitle>
         </More>
       </StyledPageHeader>
@@ -59,6 +68,9 @@ const StyledTitle = styled.h1`
   margin: 0;
   padding: 10px;
   text-align: center;
+  > a {
+    text-decoration: none;
+  }
 `
 
 const StyledSubtitle = styled.h3`
