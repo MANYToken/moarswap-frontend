@@ -13,6 +13,7 @@ import useModal from './hooks/useModal'
 import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
+import NFTs from './views/NFTs/NFTs'
 
 import bgVidLoop from './assets/vid/background-vid-loop.mp4'
 import bgVidWebMLoop from './assets/vid/background-vid-loop.webm'
@@ -92,6 +93,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/farms">
             <Farms />
+          </Route>
+          <Route path="/nfts">
+            <NFTs />
           </Route>
         </Switch>
       </Router>
