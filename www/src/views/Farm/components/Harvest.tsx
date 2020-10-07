@@ -45,6 +45,7 @@ const Harvest: React.FC<HarvestProps> = ({pid}) => {
   )
 }
 
+// move to parts.tsx
 const StyledCardHeader = styled.div`
   align-items: center;
   display: flex;
