@@ -1,8 +1,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+For frontend app you need yarn and react-app-rewired installed globally
+
+```
+npm i yarn
+npm i react-app-rewired
+
+```
+
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory (/www), you can run:
 
 ### `yarn start`
 

@@ -28,9 +28,9 @@
     "web3": "^1.2.11"
   },
   "scripts": {
-    "start": "react-scripts start --no-cache",
-    "build": "CI= GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start --no-cache",
+    "build": "CI= GENERATE_SOURCEMAP=false react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "deploy": "yarn build && cp ./build/index.html ./build/200.html && surge ./build sushiswap.org"
   },
@@ -53,7 +53,9 @@
     "@types/numeral": "0.0.28",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
-    "@types/styled-components": "^5.1.2"
+    "@types/styled-components": "^5.1.2",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.6"
   },
   "prettier": {
     "trailingComma": "all",

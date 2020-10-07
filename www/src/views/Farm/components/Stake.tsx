@@ -68,6 +68,9 @@ const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
     }
   }, [onApprove, setRequestedApproval])
 
+  // MOAR-ETH LP contract should not be allowed to stake
+  const isAddingToPoolAllowed = lpContract.options.address !== '0x10B4Bbb2773AB474E9bCB4D71aCF5b8625DFF9f0';
+
   return (
     <Card>
       <CardContent>
@@ -93,10 +96,14 @@ const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
                   text="Unstake"
                   onClick={onPresentWithdraw}
                 />
-                <StyledActionSpacer />
-                <IconButton onClick={onPresentDeposit}>
-                  <AddIcon />
-                </IconButton>
+                {isAddingToPoolAllowed && (
+                  <>
+                    <StyledActionSpacer />
+                    <IconButton onClick={onPresentDeposit}>
+                      <AddIcon />
+                    </IconButton>
+                  </>
+                )}
               </>
             )}
           </StyledCardActions>
