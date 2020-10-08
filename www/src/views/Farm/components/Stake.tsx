@@ -82,6 +82,9 @@ const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
             <Value value={getBalanceNumber(stakedBalance)} />
             <Label text={`${tokenName} Tokens Staked`} />
           </StyledCardHeader>
+          {!isAddingToPoolAllowed && <InactivePool>
+            Inactive Pool
+          </InactivePool>}
           <StyledCardActions>
             {!allowance.toNumber() ? (
               <Button
@@ -113,6 +116,15 @@ const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
   )
 }
 
+const InactivePool = styled.span`
+  display: block;
+  color: red;
+  margin-bottom: -30px;
+  margin-top: 10px;
+  font-size: 25px;
+`;
+
+// move to parts.tsx
 const StyledCardHeader = styled.div`
   align-items: center;
   display: flex;
@@ -132,6 +144,7 @@ const StyledActionSpacer = styled.div`
 
 const StyledCardContentInner = styled.div`
   align-items: center;
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
