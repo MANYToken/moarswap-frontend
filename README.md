@@ -5,14 +5,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 For frontend app you need yarn and react-app-rewired installed globally
 
 ```
-npm i yarn
-npm i react-app-rewired
-
+npm install -g yarn
+npm install -g react-app-rewired
 ```
 
 ## Available Scripts
 
 In the project directory (/www), you can run:
+
+### `npm install`
+Installs all the dependencies
 
 ### `yarn start`
 
