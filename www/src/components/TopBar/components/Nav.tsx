@@ -12,7 +12,7 @@ const Nav: React.FC = () => {
         Menu
       </StyledLink>
       <StyledLink exact activeClassName="active" to="/nfts">
-        NTFs
+        NFTs
       </StyledLink>
       <StyledLink exact activeClassName="active" to="/my">
         My collectibles

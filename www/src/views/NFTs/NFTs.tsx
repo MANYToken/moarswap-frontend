@@ -29,7 +29,7 @@ const NFTs: React.FC = () => {
                         <PageHeader
                             icon={<img src={chadChef} height="320" />}
                             subtitle="bla bla bla"
-                            title="Pick an NTF to buy"
+                            title="Pick an NFT to buy"
                         />
                         <NFTCards 
                             path="nfts" 
