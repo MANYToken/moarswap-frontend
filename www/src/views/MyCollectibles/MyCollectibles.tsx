@@ -9,16 +9,16 @@ import Button from '../../components/Button'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
 import WalletProviderModal from '../../components/WalletProviderModal'
-import NFTCards from './components/NFTCards'
+import NFTCards from "../NFTs/components/NFTCards"
 import NFT from '../NFT'
 
-import useNFTs from '../../hooks/useNFTs';
+import useCollectibles from '../../hooks/useCollectibles';
 
-const NFTs: React.FC = () => {
+const MyCollectibles: React.FC = () => {
     const {path} = useRouteMatch()
     const {account} = useWallet()
     const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />);
-    const nfts = useNFTs();
+    const nfts = useCollectibles();
 
     return (
         <Switch>
@@ -28,11 +28,11 @@ const NFTs: React.FC = () => {
                     <Route exact path={path}>
                         <PageHeader
                             icon={<img src={chadChef} height="320" />}
-                            subtitle="bla bla bla"
-                            title="Pick an NTF to buy"
+                            subtitle="Click on the one to show info"
+                            title="Here are your collectibles!"
                         />
                         <NFTCards 
-                            path="nfts" 
+                            path="my"
                             nfts={nfts}
                         />
                     </Route>
@@ -60,4 +60,4 @@ const NFTs: React.FC = () => {
 };
 
 
-export default NFTs;    
+export default MyCollectibles;    
