@@ -23,41 +23,25 @@ const NFTs: React.FC = () => {
   return (
     <Switch>
       <Page>
-        {!!account ? (
-          <>
-            <Route exact path={path}>
-              <PageHeader
-                icon={<img src={chadChef} height="320" />}
-                subtitle="bla bla bla"
-                title="Pick an NFT to buy"
-              />
-              <NFTCards
-                path="nfts"
-                nfts={nfts}
-              />
-            </Route>
-            <Route path={`${path}/:nftId`}>
-              <NFTDetails nfts={nfts} />
-            </Route>
-          </>
-        ) : (
-            <div
-              style={{
-                alignItems: 'center',
-                display: 'flex',
-                flex: 1,
-                justifyContent: 'center',
-              }}>
-              <Button
-                onClick={onPresentWalletProviderModal}
-                text="🔓 Unlock Wallet"
-              />
-            </div>
-          )}
+        <>
+          <Route exact path={path}>
+            <PageHeader
+              icon={<img src={chadChef} height="320" />}
+              subtitle="bla bla bla"
+              title="Pick an NFT to buy"
+            />
+            <NFTCards
+              path="nfts"
+              nfts={nfts}
+            />
+          </Route>
+          <Route path={`${path}/:nftId`}>
+            <NFTDetails nfts={nfts} />
+          </Route>
+        </>
       </Page>
     </Switch>
   )
 };
-
 
 export default NFTs;    
