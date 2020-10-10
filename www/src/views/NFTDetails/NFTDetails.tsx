@@ -6,10 +6,10 @@ import Button from '../../components/Button'
 import Card from '../../components/Card'
 
 interface NFTProps {
-  nfts: Array<NFT>
+  nfts: Array<NFTDetails>
 }
 
-interface NFT {
+interface NFTDetails {
   id: number,
   title: string,
   price?: any,
@@ -17,7 +17,7 @@ interface NFT {
   subtitle: string
 }
 
-const NFT: React.FC<NFTProps> = ({ nfts }) => {
+const NFTDetails: React.FC<NFTProps> = ({ nfts }) => {
   const { nftId } = useParams();
   const {
     price,
@@ -96,4 +96,4 @@ const StyledSubtitle = styled.h3`
   text-align: center;
 `
 
-export default NFT
+export default NFTDetails

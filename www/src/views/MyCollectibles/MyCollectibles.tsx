@@ -10,7 +10,7 @@ import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
 import WalletProviderModal from '../../components/WalletProviderModal'
 import NFTCards from "../NFTs/components/NFTCards"
-import NFT from '../NFT'
+import NFTDetails from '../NFTDetails'
 
 import useCollectibles from '../../hooks/useCollectibles';
 
@@ -37,7 +37,7 @@ const MyCollectibles: React.FC = () => {
               />
             </Route>
             <Route path={`${path}/:nftId`}>
-              <NFT nfts={nfts} />
+              <NFTDetails nfts={nfts} />
             </Route>
           </>
         ) : (

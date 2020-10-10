@@ -43,7 +43,7 @@
     "rules": {
       "semi": [
         "error",
-        "always"
+        "never"
       ],
       "quotes": [
         "error",
