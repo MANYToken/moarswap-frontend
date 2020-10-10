@@ -1,5 +1,5 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import Spacer from '../../components/Spacer'
 import Button from '../../components/Button'
@@ -17,45 +17,45 @@ interface NFT {
   subtitle: string
 }
 
-const NFT: React.FC<NFTProps> = ({nfts}) => {
-    const {nftId} = useParams();
-    const {
-        price,
-        title,
-        subtitle,
-        image
-      } = nfts.find((nft) => nft.id === +nftId);
+const NFT: React.FC<NFTProps> = ({ nfts }) => {
+  const { nftId } = useParams();
+  const {
+    price,
+    title,
+    subtitle,
+    image
+  } = nfts.find((nft) => nft.id === +nftId);
 
-    return (
-        <>
-            <Spacer size="lg" />
-            <img 
-              src={image}
-              style={{
-                maxWidth: '500px'
-              }}
+  return (
+    <>
+      <Spacer size="lg" />
+      <img
+        src={image}
+        style={{
+          maxWidth: '500px'
+        }}
+      />
+      <StyledContainer>
+        <Spacer size="lg" />
+        <More>
+          <StyledTitle>
+            <a href="#">{title}</a>
+          </StyledTitle>
+          <StyledSubtitle>{subtitle}</StyledSubtitle>
+        </More>
+        <Spacer size="lg" />
+      </StyledContainer>
+
+      {
+        price ?
+          <div>
+            <Button
+              text={`Purchase for  Ξ ${price}`}
             />
-            <StyledContainer>
-                <Spacer size="lg" />
-                <More>
-                    <StyledTitle>
-                    <a href="#">{title}</a>
-                    </StyledTitle>
-    <StyledSubtitle>{subtitle}</StyledSubtitle>
-                </More>
-                <Spacer size="lg" />
-            </StyledContainer>
-
-            { 
-              price ? 
-              <div>
-                  <Button
-                      text={`Purchase for  Ξ ${price}`}
-                  />
-              </div> : null 
-            }
-        </>
-    )
+          </div> : null
+      }
+    </>
+  )
 }
 
 const More = styled(Card)`

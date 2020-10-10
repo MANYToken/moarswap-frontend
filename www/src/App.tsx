@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect, useState} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import {ThemeProvider} from 'styled-components'
-import {UseWalletProvider} from 'use-wallet'
+import React, { useCallback, useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import { UseWalletProvider } from 'use-wallet'
 import DisclaimerModal from './components/DisclaimerModal'
 import MobileMenu from './components/MobileMenu'
 import TopBar from './components/TopBar'
@@ -24,8 +24,8 @@ import bgVidWebMOpening from './assets/vid/background-vid-opening.webm'
 
 import bgVidPic from './assets/img/when-no-video.png'
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faVolumeOff, faVolumeUp} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVolumeOff, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -108,13 +108,13 @@ const App: React.FC = () => {
   )
 }
 
-const Providers: React.FC = ({children}) => {
+const Providers: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <UseWalletProvider
         chainId={1}
         connectors={{
-          walletconnect: {rpcUrl: 'https://mainnet.eth.aragon.network/'},
+          walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
         }}>
         <SushiProvider>
           <TransactionProvider>

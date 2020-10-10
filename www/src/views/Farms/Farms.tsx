@@ -1,6 +1,6 @@
 import React from 'react'
-import {Route, Switch, useRouteMatch} from 'react-router-dom'
-import {useWallet} from 'use-wallet'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { useWallet } from 'use-wallet'
 
 import chadChef from '../../assets/img/chefchad.png'
 
@@ -16,8 +16,8 @@ import Farm from '../Farm'
 import FarmCards from './components/FarmCards'
 
 const Farms: React.FC = () => {
-  const {path} = useRouteMatch()
-  const {account} = useWallet()
+  const { path } = useRouteMatch()
+  const { account } = useWallet()
   const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
   return (
     <Switch>
@@ -37,19 +37,19 @@ const Farms: React.FC = () => {
             </Route>
           </>
         ) : (
-          <div
-            style={{
-              alignItems: 'center',
-              display: 'flex',
-              flex: 1,
-              justifyContent: 'center',
-            }}>
-            <Button
-              onClick={onPresentWalletProviderModal}
-              text="🔓 Unlock Wallet"
-            />
-          </div>
-        )}
+            <div
+              style={{
+                alignItems: 'center',
+                display: 'flex',
+                flex: 1,
+                justifyContent: 'center',
+              }}>
+              <Button
+                onClick={onPresentWalletProviderModal}
+                text="🔓 Unlock Wallet"
+              />
+            </div>
+          )}
       </Page>
     </Switch>
   )

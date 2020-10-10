@@ -12,7 +12,7 @@ interface NFTCards {
   nfts: Array<NFT>
 }
 
-const NFTCards: React.FC<NFTCards> = ({path, nfts}) => {
+const NFTCards: React.FC<NFTCards> = ({ path, nfts }) => {
   const nftRows = nfts.reduce((rows, nft, i) => (i % 3 === 0 ? rows.push([nft])
     : rows[rows.length - 1].push(nft)) && rows, []);
 
@@ -70,7 +70,7 @@ const NFTCard: React.FC<NFTCardProps> = ({ nft, path }) => {
               />
             </CardImage>
             <StyledTitle>{title}</StyledTitle>
-            { price ? <StyledPrice>{`Ξ ${price}`}</StyledPrice> : null  }
+            {price ? <StyledPrice>{`Ξ ${price}`}</StyledPrice> : null}
             <Spacer />
             <Button
               text={'Select'}
