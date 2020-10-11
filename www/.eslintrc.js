@@ -49,7 +49,7 @@ module.exports = {
         '.ts'
       ]
     }],
-    'import/no-default-export': 'error',
+    'import/no-default-export': 'off', // to be switched to error once fixed
     'import/prefer-default-export': 'off',
     'react/prop-types': 0 // to be switched to error once we have time for proptypes
   },
