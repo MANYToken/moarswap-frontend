@@ -1,13 +1,13 @@
 import BigNumber from 'bignumber.js'
-import React, {useCallback, useState} from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import {Contract} from 'web3-eth-contract'
+import { Contract } from 'web3-eth-contract'
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
 import IconButton from '../../../components/IconButton'
-import {AddIcon} from '../../../components/icons'
+import { AddIcon } from '../../../components/icons'
 import Label from '../../../components/Label'
 import Value from '../../../components/Value'
 import useAllowance from '../../../hooks/useAllowance'
@@ -17,7 +17,7 @@ import useStake from '../../../hooks/useStake'
 import useStakedBalance from '../../../hooks/useStakedBalance'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useUnstake from '../../../hooks/useUnstake'
-import {getBalanceNumber} from '../../../utils/formatBalance'
+import { getBalanceNumber } from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 
@@ -27,24 +27,24 @@ interface StakeProps {
   tokenName: string
 }
 
-const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
+const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
 
   const allowance = useAllowance(lpContract)
-  const {onApprove} = useApprove(lpContract)
+  const { onApprove } = useApprove(lpContract)
 
   const tokenBalance = useTokenBalance(lpContract.options.address)
   const stakedBalance = useStakedBalance(pid)
 
-  const {onStake} = useStake(pid)
-  const {onUnstake} = useUnstake(pid)
+  const { onStake } = useStake(pid)
+  const { onUnstake } = useUnstake(pid)
 
   const [onPresentDeposit] = useModal(
     <DepositModal
       max={tokenBalance}
       onConfirm={onStake}
       tokenName={tokenName}
-    />
+    />,
   )
 
   const [onPresentWithdraw] = useModal(
@@ -52,7 +52,7 @@ const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
       max={stakedBalance}
       onConfirm={onUnstake}
       tokenName={tokenName}
-    />
+    />,
   )
 
   const handleApprove = useCallback(async () => {
@@ -69,7 +69,7 @@ const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
   }, [onApprove, setRequestedApproval])
 
   // MOAR-ETH LP contract should not be allowed to stake
-  const isAddingToPoolAllowed = lpContract.options.address !== '0x10B4Bbb2773AB474E9bCB4D71aCF5b8625DFF9f0';
+  const isAddingToPoolAllowed = lpContract.options.address !== '0x10B4Bbb2773AB474E9bCB4D71aCF5b8625DFF9f0'
 
   return (
     <Card>
@@ -77,14 +77,16 @@ const Stake: React.FC<StakeProps> = ({lpContract, pid, tokenName}) => {
         <StyledCardContentInner>
           <StyledCardHeader>
             <CardIcon>
-              <span role={'img'}>👨🏻‍🍳</span>
+              <span role="img">👨🏻‍🍳</span>
             </CardIcon>
             <Value value={getBalanceNumber(stakedBalance)} />
             <Label text={`${tokenName} Tokens Staked`} />
           </StyledCardHeader>
-          {!isAddingToPoolAllowed && <InactivePool>
+          {!isAddingToPoolAllowed && (
+          <InactivePool>
             Inactive Pool
-          </InactivePool>}
+          </InactivePool>
+          )}
           <StyledCardActions>
             {!allowance.toNumber() ? (
               <Button
@@ -122,7 +124,7 @@ const InactivePool = styled.span`
   margin-bottom: -30px;
   margin-top: 10px;
   font-size: 25px;
-`;
+`
 
 // move to parts.tsx
 const StyledCardHeader = styled.div`

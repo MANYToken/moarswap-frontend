@@ -22,11 +22,11 @@ const Farms: React.FC = () => {
   return (
     <Switch>
       <Page>
-        {!!account ? (
+        {account ? (
           <>
             <Route exact path={path}>
               <PageHeader
-                icon={<img src={chadChef} height="320" />}
+                icon={<img src={chadChef} alt="Chad Chef" height="320" />}
                 subtitle="Earn MOAR tokens by staking Uniswap V2 LP Tokens."
                 title="Choose your gains"
               />
@@ -37,19 +37,20 @@ const Farms: React.FC = () => {
             </Route>
           </>
         ) : (
-            <div
-              style={{
-                alignItems: 'center',
-                display: 'flex',
-                flex: 1,
-                justifyContent: 'center',
-              }}>
-              <Button
-                onClick={onPresentWalletProviderModal}
-                text="🔓 Unlock Wallet"
-              />
-            </div>
-          )}
+          <div
+            style={{
+              alignItems: 'center',
+              display: 'flex',
+              flex: 1,
+              justifyContent: 'center',
+            }}
+          >
+            <Button
+              onClick={onPresentWalletProviderModal}
+              text="🔓 Unlock Wallet"
+            />
+          </div>
+        )}
       </Page>
     </Switch>
   )

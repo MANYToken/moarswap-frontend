@@ -1,4 +1,6 @@
-import { black, green, grey, red, white } from './colors'
+import {
+  black, green, grey, red, white,
+} from './colors'
 
 const theme = {
   borderRadius: 12,
@@ -27,7 +29,7 @@ const theme = {
     6: 48,
     7: 64,
   },
-  topBarSize: 72
+  topBarSize: 72,
 }
 
 export default theme

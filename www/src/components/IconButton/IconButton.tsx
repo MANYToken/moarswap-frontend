@@ -14,13 +14,11 @@ const IconButton: React.FC<IconButtonProps> = ({
   disabled,
   onClick,
   to,
-}) => {
-  return (
-    <StyledButton disabled={disabled} onClick={onClick}>
-      {!!to ? <StyledLink to={to}>{children}</StyledLink> : children}
-    </StyledButton>
-  )
-}
+}) => (
+  <StyledButton disabled={disabled} onClick={onClick}>
+    {to ? <StyledLink to={to}>{children}</StyledLink> : children}
+  </StyledButton>
+)
 
 interface StyledButtonProps {
   disabled?: boolean
@@ -33,10 +31,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   border-radius: 28px;
   box-shadow: 6px 6px 12px ${(props) => props.theme.color.grey[300]},
     -12px -12px 24px ${(props) => props.theme.color.grey[100]}aa;
-  color: ${(props) =>
-    !props.disabled
-      ? props.theme.color.primary.main
-      : props.theme.color.grey[400]};
+  color: ${(props) => (!props.disabled
+    ? props.theme.color.primary.main
+    : props.theme.color.grey[400])};
   cursor: pointer;
   display: flex;
   font-weight: 700;

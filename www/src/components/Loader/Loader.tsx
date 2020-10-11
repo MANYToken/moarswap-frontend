@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import CardIcon from '../CardIcon'
 
@@ -7,16 +7,14 @@ interface LoaderProps {
   text?: string
 }
 
-const Loader: React.FC<LoaderProps> = ({text}) => {
-  return (
-    <StyledLoader>
-      <CardIcon>
-        <StyledSushi>🗿</StyledSushi>
-      </CardIcon>
-      {!!text && <StyledText>{text}</StyledText>}
-    </StyledLoader>
-  )
-}
+const Loader: React.FC<LoaderProps> = ({ text }) => (
+  <StyledLoader>
+    <CardIcon>
+      <StyledSushi>🗿</StyledSushi>
+    </CardIcon>
+    {!!text && <StyledText>{text}</StyledText>}
+  </StyledLoader>
+)
 
 const spin = keyframes`
   0% {

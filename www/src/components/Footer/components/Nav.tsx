@@ -1,31 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Nav: React.FC = () => {
-  return (
-    <StyledNav>
-      <StyledLink
-        target="_blank"
-        href="https://etherscan.io/address/0xcff6540c125f9dec2c5427b60e89816e840b25ec#code">
-        ChadChef Contract
-      </StyledLink>
-      <StyledLink
-        target="_blank"
-        href="https://uniswap.info/pair/0x55a06945E79F2d6a14b5C4f18E8E73091e2E57D6">
-        Uniswap MANY-ETH
-      </StyledLink>
-      <StyledLink target="_blank" href="https://t.me/manyunderstandthis">
-        Telegram
-      </StyledLink>
-      <StyledLink target="_blank" href="https://github.com/MANYToken">
-        Github
-      </StyledLink>
-      <StyledLink target="_blank" href="https://twitter.com/Chadmunity">
-        Twitter
-      </StyledLink>
-    </StyledNav>
-  )
-}
+const Nav: React.FC = () => (
+  <StyledNav>
+    <StyledLink
+      target="_blank"
+      href="https://etherscan.io/address/0xcff6540c125f9dec2c5427b60e89816e840b25ec#code"
+    >
+      ChadChef Contract
+    </StyledLink>
+    <StyledLink
+      target="_blank"
+      href="https://uniswap.info/pair/0x55a06945E79F2d6a14b5C4f18E8E73091e2E57D6"
+    >
+      Uniswap MANY-ETH
+    </StyledLink>
+    <StyledLink target="_blank" href="https://t.me/manyunderstandthis">
+      Telegram
+    </StyledLink>
+    <StyledLink target="_blank" href="https://github.com/MANYToken">
+      Github
+    </StyledLink>
+    <StyledLink target="_blank" href="https://twitter.com/Chadmunity">
+      Twitter
+    </StyledLink>
+  </StyledNav>
+)
 
 const StyledNav = styled.nav`
   align-items: center;

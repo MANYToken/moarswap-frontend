@@ -1,7 +1,5 @@
-import nfts from '../mocks/MyCollectibles';
+import nfts from '../mocks/MyCollectibles'
 
-const useCollectibles = () => {
-    return nfts;
-}
+const useCollectibles = () => nfts
 
-export default useCollectibles;
+export default useCollectibles

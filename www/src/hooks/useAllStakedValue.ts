@@ -32,7 +32,7 @@ const useAllStakedValue = () => {
   const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
-    const balances: Array<StakedValue> = await Promise.all(
+    const allStakedBalances: Array<StakedValue> = await Promise.all(
       farms.map(
         ({
           pid,
@@ -42,18 +42,17 @@ const useAllStakedValue = () => {
           pid: number
           lpContract: Contract
           tokenContract: Contract
-        }) =>
-          getTotalLPWethValue(
-            masterChefContract,
-            wethContact,
-            lpContract,
-            tokenContract,
-            pid,
-          ),
+        }) => getTotalLPWethValue(
+          masterChefContract,
+          wethContact,
+          lpContract,
+          tokenContract,
+          pid,
+        ),
       ),
     )
 
-    setBalance(balances)
+    setBalance(allStakedBalances)
   }, [account, masterChefContract, sushi])
 
   useEffect(() => {

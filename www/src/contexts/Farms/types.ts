@@ -1,4 +1,4 @@
-import {Contract} from 'web3-eth-contract'
+import { Contract } from 'web3-eth-contract'
 
 export interface Farm {
   pid: number
@@ -12,7 +12,9 @@ export interface Farm {
   icon: React.ReactNode
   id: string
   tokenSymbol: string
+  // eslint-disable-next-line camelcase
   add_lp: string
+  // eslint-disable-next-line camelcase
   pair_url: string
 }
 

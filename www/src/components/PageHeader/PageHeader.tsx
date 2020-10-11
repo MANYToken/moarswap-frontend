@@ -2,13 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Container from '../Container'
-import Card from '../../components/Card'
+import Card from '../Card'
 
 interface PageHeaderProps {
   icon: React.ReactNode
   subtitle?: string
   title?: string
+  // eslint-disable-next-line camelcase
   add_lp?: string
+  // eslint-disable-next-line camelcase
   pair_url?: string
 }
 
@@ -23,22 +25,22 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   icon,
   subtitle,
   title,
+  // eslint-disable-next-line camelcase
   pair_url,
-}) => {
-  return (
-    <Container size="md">
-      <StyledPageHeader>
-        <StyledIcon>{icon}</StyledIcon>
-        <More>
-          <StyledTitle>
-            <a href={pair_url}>{title}</a>
-          </StyledTitle>
-          <StyledSubtitle>{subtitle}</StyledSubtitle>
-        </More>
-      </StyledPageHeader>
-    </Container>
-  )
-}
+}) => (
+  <Container size="md">
+    <StyledPageHeader>
+      <StyledIcon>{icon}</StyledIcon>
+      <More>
+        <StyledTitle>
+          {/* eslint-disable-next-line camelcase */}
+          <a href={pair_url}>{title}</a>
+        </StyledTitle>
+        <StyledSubtitle>{subtitle}</StyledSubtitle>
+      </More>
+    </StyledPageHeader>
+  </Container>
+)
 
 const StyledPageHeader = styled.div`
   align-items: center;

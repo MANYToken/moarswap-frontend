@@ -30,7 +30,26 @@ module.exports = {
     semi: ['error', 'never'],
     'linebreak-style': ['off', 'unix'],
     'no-use-before-define': 'off', // for correct work of typescript rule below
-    '@typescript-eslint/no-use-before-define': ['error'],
+    'no-unused-vars': [
+      'off',
+      {
+        args: 'none',
+        ignoreRestSiblings: true,
+      },
+    ], // for correct work of typescript rule below
+    '@typescript-eslint/no-use-before-define': 'warn',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        args: 'none',
+        ignoreRestSiblings: true,
+      },
+    ],
+    'jsx-a11y/alt-text': 'warn',
+    'jsx-a11y/media-has-caption': 'off',
+    'consistent-return': 'off',
+    'no-nested-ternary': 'warn',
+    'jsx-a11y/accessible-emoji': 'warn',
     'import/extensions': [
       'error',
       'ignorePackages',
