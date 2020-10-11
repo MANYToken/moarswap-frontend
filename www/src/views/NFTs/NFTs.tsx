@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 import useModal from '../../hooks/useModal'
@@ -12,13 +12,13 @@ import WalletProviderModal from '../../components/WalletProviderModal'
 import NFTCards from './components/NFTCards'
 import NFTDetails from '../NFTDetails'
 
-import useNFTs from '../../hooks/useNFTs';
+import useNFTs from '../../hooks/useNFTs'
 
 const NFTs: React.FC = () => {
   const { path } = useRouteMatch()
   const { account } = useWallet()
-  const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />);
-  const nfts = useNFTs();
+  const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
+  const nfts = useNFTs()
 
   return (
     <Switch>
@@ -42,6 +42,6 @@ const NFTs: React.FC = () => {
       </Page>
     </Switch>
   )
-};
+}
 
-export default NFTs;    
+export default NFTs

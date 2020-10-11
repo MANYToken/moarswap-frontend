@@ -15,6 +15,13 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
+    }
+  },
   plugins: [
     'react',
     '@typescript-eslint',
@@ -22,5 +29,28 @@ module.exports = {
   rules: {
     semi: ['error', 'never'],
     'linebreak-style': ['off', 'unix'],
+    'no-use-before-define': 'off', // for correct work of typescript rule below
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
+    ],
+    'react/jsx-filename-extension': [1, {
+      extensions: [
+        '.js',
+        '.jsx',
+        '.tsx',
+        '.ts'
+      ]
+    }],
+    'import/no-default-export': 'error',
+    'import/prefer-default-export': 'off',
+    'react/prop-types': 0 // to be switched to error once we have time for proptypes
   },
 }
