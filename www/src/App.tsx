@@ -1,7 +1,9 @@
-import React, {useCallback, useEffect, useState} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import {ThemeProvider} from 'styled-components'
-import {UseWalletProvider} from 'use-wallet'
+import React, { useCallback, useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import { UseWalletProvider } from 'use-wallet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVolumeOff, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import DisclaimerModal from './components/DisclaimerModal'
 import MobileMenu from './components/MobileMenu'
 import TopBar from './components/TopBar'
@@ -13,7 +15,8 @@ import useModal from './hooks/useModal'
 import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
-import NFTs from './views/NFTs/NFTs'
+import NFTs from './views/NFTs'
+import MyCollectibles from './views/MyCollectibles'
 
 import bgVidLoop from './assets/vid/background-vid-loop.mp4'
 import bgVidWebMLoop from './assets/vid/background-vid-loop.webm'
@@ -22,9 +25,6 @@ import bgVidOpening from './assets/vid/background-vid-opening.mp4'
 import bgVidWebMOpening from './assets/vid/background-vid-opening.webm'
 
 import bgVidPic from './assets/img/when-no-video.png'
-
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faVolumeOff, faVolumeUp} from '@fortawesome/free-solid-svg-icons'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -43,16 +43,17 @@ const App: React.FC = () => {
 
   const other_vid = (
     <video
-      playsInline={true}
-      autoPlay={true}
-      preload={'auto'}
+      playsInline
+      autoPlay
+      preload="auto"
       muted={muted || use_looping_video === false}
       loop={false}
       controls={false}
       onEnded={function (el) {
         el.currentTarget.currentTime = 0.035
         el.currentTarget.play()
-      }}>
+      }}
+    >
       <source src={bgVidLoop} type="video/mp4" />
       <source src={bgVidWebMLoop} type="video/webm" />
     </video>
@@ -65,16 +66,16 @@ const App: React.FC = () => {
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <FontAwesomeIcon
           icon={muted ? faVolumeOff : faVolumeUp}
-          className={'mute-icon'}
-          size={'2x'}
+          className="mute-icon"
+          size="2x"
           onClick={() => {
             set_mute(!muted)
           }}
         />
         {other_vid}
         <video
-          playsInline={true}
-          autoPlay={true}
+          playsInline
+          autoPlay
           muted={muted}
           loop={false}
           controls={false}
@@ -82,7 +83,8 @@ const App: React.FC = () => {
           onEnded={function (el) {
             el.currentTarget.style.display = 'none'
             set_use_looping_vid(true)
-          }}>
+          }}
+        >
           <source src={bgVidOpening} type="video/mp4" />
           <source src={bgVidWebMOpening} type="video/webm" />
         </video>
@@ -94,9 +96,13 @@ const App: React.FC = () => {
           <Route path="/farms">
             <Farms />
           </Route>
-          <Route path="/nfts">
+          {/* NFTS to be allowed once ready */}
+          {/* <Route path="/nfts">
             <NFTs />
           </Route>
+          <Route path="/my">
+            <MyCollectibles />
+          </Route> */}
         </Switch>
       </Router>
       <Disclaimer />
@@ -104,25 +110,24 @@ const App: React.FC = () => {
   )
 }
 
-const Providers: React.FC = ({children}) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <UseWalletProvider
-        chainId={1}
-        connectors={{
-          walletconnect: {rpcUrl: 'https://mainnet.eth.aragon.network/'},
-        }}>
-        <SushiProvider>
-          <TransactionProvider>
-            <FarmsProvider>
-              <ModalsProvider>{children}</ModalsProvider>
-            </FarmsProvider>
-          </TransactionProvider>
-        </SushiProvider>
-      </UseWalletProvider>
-    </ThemeProvider>
-  )
-}
+const Providers: React.FC = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <UseWalletProvider
+      chainId={1}
+      connectors={{
+        walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
+      }}
+    >
+      <SushiProvider>
+        <TransactionProvider>
+          <FarmsProvider>
+            <ModalsProvider>{children}</ModalsProvider>
+          </FarmsProvider>
+        </TransactionProvider>
+      </SushiProvider>
+    </UseWalletProvider>
+  </ThemeProvider>
+)
 
 const Disclaimer: React.FC = () => {
   const markSeen = useCallback(() => {
@@ -130,7 +135,7 @@ const Disclaimer: React.FC = () => {
   }, [])
 
   const [onPresentDisclaimerModal] = useModal(
-    <DisclaimerModal onConfirm={markSeen} />
+    <DisclaimerModal onConfirm={markSeen} />,
   )
 
   useEffect(() => {

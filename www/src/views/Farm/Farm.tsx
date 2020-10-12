@@ -1,18 +1,18 @@
-import React, {useEffect, useMemo} from 'react'
-import {useParams} from 'react-router-dom'
+import React, { useEffect, useMemo } from 'react'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import {useWallet} from 'use-wallet'
-import {provider} from 'web3-core'
+import { useWallet } from 'use-wallet'
+import { provider } from 'web3-core'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import useFarm from '../../hooks/useFarm'
 
-import {getContract} from '../../utils/erc20'
+import { getContract } from '../../utils/erc20'
 import Harvest from './components/Harvest'
 import Stake from './components/Stake'
 
 const Farm: React.FC = () => {
-  const {farmId} = useParams()
+  const { farmId } = useParams()
   // @ts-ignore
   const {
     pid,
@@ -39,7 +39,7 @@ const Farm: React.FC = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const {ethereum} = useWallet()
+  const { ethereum } = useWallet()
 
   const lpContract = useMemo(() => {
     return getContract(ethereum as provider, lpTokenAddress)

@@ -84,7 +84,7 @@ interface FarmCardProps {
   farm: FarmWithStakedValue
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({farm}) => {
+const FarmCard: React.FC<FarmCardProps> = ({ farm}) => {
   const [startTime] = useState(0)
   const [, setHarvestable] = useState(0)
 
