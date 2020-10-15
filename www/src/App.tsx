@@ -16,6 +16,7 @@ import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
 import NFTs from './views/NFTs'
+import NFTCreate from './views/NFTCreate'
 import MyCollectibles from './views/MyCollectibles'
 
 import bgVidLoop from './assets/vid/background-vid-loop.mp4'
@@ -100,6 +101,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/nfts">
             <NFTs />
+          </Route>
+          <Route path="/create-nft">
+            <NFTCreate />
           </Route>
           <Route path="/my">
             <MyCollectibles />
