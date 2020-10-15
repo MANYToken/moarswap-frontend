@@ -1,2 +1,10 @@
 build/*
 node_modules/*
+*.json
+*.svg
+*.css
+*.webm
+*.mp4
+*.png
+src/sushi/*
+src/sushi/lib/*

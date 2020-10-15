@@ -8,7 +8,6 @@ const useBlock = () => {
   const { ethereum }: { ethereum: provider } = useWallet()
 
   useEffect(() => {
-
     if (!ethereum) return
     const web3 = new Web3(ethereum)
 
@@ -19,6 +18,7 @@ const useBlock = () => {
       }
     }, 1000)
 
+    // eslint-disable-next-line
     return () => clearInterval(interval)
   }, [ethereum])
 

@@ -1,13 +1,13 @@
-import React, {useContext} from 'react'
-import styled, {ThemeContext} from 'styled-components'
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 
 interface ContainerProps {
   children?: React.ReactNode
   size?: 'sm' | 'md' | 'lg'
 }
 
-const Container: React.FC<ContainerProps> = ({children, size = 'md'}) => {
-  const {siteWidth} = useContext<{siteWidth: number}>(ThemeContext)
+const Container: React.FC<ContainerProps> = ({ children, size = 'md' }) => {
+  const { siteWidth } = useContext<{siteWidth: number}>(ThemeContext)
   let width: number
   switch (size) {
     case 'sm':

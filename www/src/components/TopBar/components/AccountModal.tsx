@@ -1,22 +1,22 @@
-import React, {useCallback} from 'react'
+import React, { useCallback } from 'react'
 import styled from 'styled-components'
-import {useWallet} from 'use-wallet'
+import { useWallet } from 'use-wallet'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
-import {getSushiAddress} from '../../../sushi/utils'
-import {getBalanceNumber} from '../../../utils/formatBalance'
+import { getSushiAddress } from '../../../sushi/utils'
+import { getBalanceNumber } from '../../../utils/formatBalance'
 import Button from '../../Button'
 import CardIcon from '../../CardIcon'
 import Label from '../../Label'
-import Modal, {ModalProps} from '../../Modal'
+import Modal, { ModalProps } from '../../Modal'
 import ModalActions from '../../ModalActions'
 import ModalContent from '../../ModalContent'
 import ModalTitle from '../../ModalTitle'
 import Spacer from '../../Spacer'
 import Value from '../../Value'
 
-const AccountModal: React.FC<ModalProps> = ({onDismiss}) => {
-  const {account, reset} = useWallet()
+const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
+  const { account, reset } = useWallet()
 
   const handleSignOutClick = useCallback(() => {
     onDismiss!()
@@ -32,7 +32,7 @@ const AccountModal: React.FC<ModalProps> = ({onDismiss}) => {
       <ModalContent>
         <Spacer />
 
-        <div style={{display: 'flex'}}>
+        <div style={{ display: 'flex' }}>
           <StyledBalanceWrapper>
             <CardIcon>
               <span>🗿</span>

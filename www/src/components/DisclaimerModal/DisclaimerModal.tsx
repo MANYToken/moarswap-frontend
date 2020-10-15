@@ -1,9 +1,9 @@
-import React, {useCallback, useState, useMemo} from 'react'
+import React, { useCallback, useState, useMemo } from 'react'
 
 import Button from '../Button'
 import CardIcon from '../CardIcon'
-import Modal, {ModalProps} from '..//Modal'
-import ModalActions from '..//ModalActions'
+import Modal, { ModalProps } from '../Modal'
+import ModalActions from '../ModalActions'
 import ModalContent from '../ModalContent'
 import ModalTitle from '../ModalTitle'
 
@@ -11,7 +11,7 @@ interface DisclaimerModal extends ModalProps {
   onConfirm: () => void
 }
 
-const DisclaimerModal: React.FC<DisclaimerModal> = ({onConfirm, onDismiss}) => {
+const DisclaimerModal: React.FC<DisclaimerModal> = ({ onConfirm, onDismiss }) => {
   const [step, setStep] = useState('disclaimer')
 
   const handleConfirm = useCallback(() => {
@@ -38,19 +38,18 @@ const DisclaimerModal: React.FC<DisclaimerModal> = ({onConfirm, onDismiss}) => {
           </p>
         </div>
       )
-    } else {
-      return (
-        <div>
-          <p>Attention MOAR Uniswap LPs</p>
-          <p>
-            The only Uniswap pool that is compatible with MOAR is MOAR/yCRV
-            (Curve yPool tokens)
-          </p>
-          <p>Providing liquidity for other Uniswap pools is dangerous</p>
-          <p>You will LOSE your share of rebases</p>
-        </div>
-      )
     }
+    return (
+      <div>
+        <p>Attention MOAR Uniswap LPs</p>
+        <p>
+          The only Uniswap pool that is compatible with MOAR is MOAR/yCRV
+          (Curve yPool tokens)
+        </p>
+        <p>Providing liquidity for other Uniswap pools is dangerous</p>
+        <p>You will LOSE your share of rebases</p>
+      </div>
+    )
   }, [step])
 
   const button = useMemo(() => {
@@ -62,14 +61,13 @@ const DisclaimerModal: React.FC<DisclaimerModal> = ({onConfirm, onDismiss}) => {
           onClick={() => setStep('uniswap')}
         />
       )
-    } else {
-      return <Button text="I understand" onClick={handleConfirm} />
     }
+    return <Button text="I understand" onClick={handleConfirm} />
   }, [setStep, step, handleConfirm])
 
   return (
     <Modal>
-      <ModalTitle text={`Warning`} />
+      <ModalTitle text="Warning" />
       <CardIcon>⚠️</CardIcon>
       <ModalContent>{modalContent}</ModalContent>
       <ModalActions>{button}</ModalActions>

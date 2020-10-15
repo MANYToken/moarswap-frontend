@@ -29,9 +29,9 @@ import bgVidPic from './assets/img/when-no-video.png'
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
 
-  const [use_looping_video, set_use_looping_vid] = useState(false)
+  const [useLoopingVideo, setUseLoopingVid] = useState(false)
 
-  const [muted, set_mute] = useState(false)
+  const [muted, setMute] = useState(false)
 
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)
@@ -41,17 +41,18 @@ const App: React.FC = () => {
     setMobileMenu(true)
   }, [setMobileMenu])
 
-  const other_vid = (
+  const otherVideo = (
     <video
       playsInline
       autoPlay
       preload="auto"
-      muted={muted || use_looping_video === false}
+      muted={muted || useLoopingVideo === false}
       loop={false}
       controls={false}
-      onEnded={function (el) {
-        el.currentTarget.currentTime = 0.035
-        el.currentTarget.play()
+      onEnded={(el) => {
+        const element = el
+        element.currentTarget.currentTime = 0.035
+        element.currentTarget.play()
       }}
     >
       <source src={bgVidLoop} type="video/mp4" />
@@ -69,10 +70,10 @@ const App: React.FC = () => {
           className="mute-icon"
           size="2x"
           onClick={() => {
-            set_mute(!muted)
+            setMute(!muted)
           }}
         />
-        {other_vid}
+        {otherVideo}
         <video
           playsInline
           autoPlay
@@ -80,9 +81,10 @@ const App: React.FC = () => {
           loop={false}
           controls={false}
           poster={bgVidPic}
-          onEnded={function (el) {
-            el.currentTarget.style.display = 'none'
-            set_use_looping_vid(true)
+          onEnded={(el) => {
+            const element = el
+            element.currentTarget.style.display = 'none'
+            setUseLoopingVid(true)
           }}
         >
           <source src={bgVidOpening} type="video/mp4" />
@@ -96,13 +98,12 @@ const App: React.FC = () => {
           <Route path="/farms">
             <Farms />
           </Route>
-          {/* NFTS to be allowed once ready */}
-          {/* <Route path="/nfts">
+          <Route path="/nfts">
             <NFTs />
           </Route>
           <Route path="/my">
             <MyCollectibles />
-          </Route> */}
+          </Route>
         </Switch>
       </Router>
       <Disclaimer />

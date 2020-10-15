@@ -1,27 +1,23 @@
-import React from 'react';
+import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import Card from '../../../components/Card';
-import CardImage from '../../../components/CardImage';
-import CardContent from '../../../components/CardContent';
-import Spacer from '../../../components/Spacer';
-import Button from '../../../components/Button';
+import Card from '../../../components/Card'
+import CardImage from '../../../components/CardImage'
+import CardContent from '../../../components/CardContent'
+import Spacer from '../../../components/Spacer'
+import Button from '../../../components/Button'
 
 interface NFTCards {
   path: string,
   nfts: Array<NFT>
 }
 
-const NFTCards: React.FC<NFTCards> = ({ path, nfts }) => {
-  console.log('nfts', nfts)
-
-  return (
-    <StyledCards>
-      {nfts.map((nft) => (
-        <NFTCard nft={nft} key={nft.id} path={path} />
-      ))}
-    </StyledCards>
-  )
-}
+const NFTCards: React.FC<NFTCards> = ({ path, nfts }) => (
+  <StyledCards>
+    {nfts.map((nft) => (
+      <NFTCard nft={nft} key={nft.id} path={path} />
+    ))}
+  </StyledCards>
+)
 
 interface NFT {
   id: number,
@@ -37,7 +33,9 @@ interface NFTCardProps {
 }
 
 const NFTCard: React.FC<NFTCardProps> = ({ nft, path }) => {
-  const { id, title, price, image } = nft;
+  const {
+    id, title, price, image,
+  } = nft
 
   return (
     <StyledCardWrapper>
@@ -48,9 +46,10 @@ const NFTCard: React.FC<NFTCardProps> = ({ nft, path }) => {
             <CardImage>
               <img
                 src={image}
+                alt="NFT"
                 style={{
                   height: '200px',
-                  maxWidth: '200px'
+                  maxWidth: '200px',
                 }}
               />
             </CardImage>
@@ -58,9 +57,9 @@ const NFTCard: React.FC<NFTCardProps> = ({ nft, path }) => {
             {price ? <StyledPrice>{`Ξ ${price}`}</StyledPrice> : null}
             <Spacer />
             <Button
-              text={'Select'}
-              to={`/${path}/${id}`}>
-            </Button>
+              text="Select"
+              to={`/${path}/${id}`}
+            />
           </StyledContent>
         </CardContent>
       </Card>
@@ -125,13 +124,6 @@ const StyledCards = styled.div`
   }
 `
 
-const StyledLoadingWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  flex: 1;
-  justify-content: center;
-`
-
 const StyledCardWrapper = styled.div`
   display: flex;
   width: calc((900px - ${(props) => props.theme.spacing[4]}px * 2) / 3);
@@ -152,9 +144,4 @@ const StyledContent = styled.div`
   flex-direction: column;
 `
 
-const StyledSpacer = styled.div`
-  height: ${(props) => props.theme.spacing[4]}px;
-  width: ${(props) => props.theme.spacing[4]}px;
-`
-
-export default NFTCards;
+export default NFTCards

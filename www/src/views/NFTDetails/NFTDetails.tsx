@@ -18,28 +18,29 @@ interface NFTDetails {
 }
 
 const NFTDetails: React.FC<NFTProps> = ({ nfts }) => {
-  const { nftId } = useParams();
+  const { nftId } = useParams()
   const {
     price,
     title,
     subtitle,
-    image
-  } = nfts.find((nft) => nft.id === +nftId);
+    image,
+  } = nfts.find((nft) => nft.id === +nftId)
 
   return (
     <>
       <Spacer size="lg" />
       <img
         src={image}
+        alt="nft details"
         style={{
-          maxWidth: '500px'
+          maxWidth: '500px',
         }}
       />
       <StyledContainer>
         <Spacer size="lg" />
         <More>
           <StyledTitle>
-            <a href="#">{title}</a>
+            {title}
           </StyledTitle>
           <StyledSubtitle>{subtitle}</StyledSubtitle>
         </More>
@@ -47,12 +48,14 @@ const NFTDetails: React.FC<NFTProps> = ({ nfts }) => {
       </StyledContainer>
 
       {
-        price ?
-          <div>
-            <Button
-              text={`Purchase for  Ξ ${price}`}
-            />
-          </div> : null
+        price
+          ? (
+            <div>
+              <Button
+                text={`Purchase for  Ξ ${price}`}
+              />
+            </div>
+          ) : null
       }
     </>
   )

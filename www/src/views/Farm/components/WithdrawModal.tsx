@@ -22,9 +22,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
 
-  const fullBalance = useMemo(() => {
-    return getFullDisplayBalance(max)
-  }, [max])
+  const fullBalance = useMemo(() => getFullDisplayBalance(max), [max])
 
   const handleChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {

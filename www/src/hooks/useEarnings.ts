@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+// eslint-disable-next-line
 import { provider } from 'web3-core'
 
 import BigNumber from 'bignumber.js'
@@ -12,15 +13,14 @@ const useEarnings = (pid: number) => {
   const [balance, setBalance] = useState(new BigNumber(0))
   const {
     account,
-    ethereum,
-  }: { account: string; ethereum: provider } = useWallet()
+  }: { account: string; } = useWallet()
   const sushi = useSushi()
   const masterChefContract = getMasterChefContract(sushi)
   const block = useBlock()
 
   const fetchBalance = useCallback(async () => {
-    const balance = await getEarned(masterChefContract, pid, account)
-    setBalance(new BigNumber(balance))
+    const earnedBalance = await getEarned(masterChefContract, pid, account)
+    setBalance(new BigNumber(earnedBalance))
   }, [account, masterChefContract, sushi])
 
   useEffect(() => {

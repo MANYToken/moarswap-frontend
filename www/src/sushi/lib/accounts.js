@@ -1,3 +1,4 @@
+/* eslint-disable */
 export class Account {
   constructor(contracts, address) {
     this.contracts = contracts

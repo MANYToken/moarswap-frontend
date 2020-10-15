@@ -1,19 +1,19 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import chadChef from '../../assets/img/chefchad.png'
 
-const Logo: React.FC = () => {
-  return (
-    <StyledLogo to="/">
-      <img src={chadChef} height="32" style={{marginTop: -4}} />
-      <StyledText>
-        MOAR <MasterChefText>ChadChef</MasterChefText>
-      </StyledText>
-    </StyledLogo>
-  )
-}
+const Logo: React.FC = () => (
+  <StyledLogo to="/">
+    <img src={chadChef} height="32" style={{ marginTop: -4 }} />
+    <StyledText>
+      MOAR
+      {' '}
+      <MasterChefText>ChadChef</MasterChefText>
+    </StyledText>
+  </StyledLogo>
+)
 
 const StyledLogo = styled(Link)`
   align-items: center;

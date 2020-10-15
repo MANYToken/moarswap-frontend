@@ -15,8 +15,8 @@ const useStakedBalance = (pid: number) => {
   const block = useBlock()
 
   const fetchBalance = useCallback(async () => {
-    const balance = await getStaked(masterChefContract, pid, account)
-    setBalance(new BigNumber(balance))
+    const stackedBalance = await getStaked(masterChefContract, pid, account)
+    setBalance(new BigNumber(stackedBalance))
   }, [account, pid, sushi])
 
   useEffect(() => {

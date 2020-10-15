@@ -1,17 +1,15 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export interface ModalProps {
   onDismiss?: () => void
 }
 
-const Modal: React.FC = ({children}) => {
-  return (
-    <StyledResponsiveWrapper>
-      <StyledModal>{children}</StyledModal>
-    </StyledResponsiveWrapper>
-  )
-}
+const Modal: React.FC = ({ children }) => (
+  <StyledResponsiveWrapper>
+    <StyledModal>{children}</StyledModal>
+  </StyledResponsiveWrapper>
+)
 
 const mobileKeyframes = keyframes`
   0% {
