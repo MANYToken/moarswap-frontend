@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import { TransactionReceipt } from 'web3-core'
-import { Container, Button } from '../../components'
-import { StyledForm } from './parts'
-import { ipfs, web3, storeHash } from '../../ipfs'
+import {
+  Container,
+  Button,
+  RainbowLightAccent,
+} from '../../components'
+import {
+  StyledForm,
+  StyledCreateNFTContainer,
+} from './parts'
 
 declare const Buffer: any
 declare const hash: any
@@ -36,71 +41,40 @@ const NFTCreate: React.FC = () => {
   }
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault()
-    console.log('in submit')
-    const accounts = await web3.eth.getAccounts()
-    // obtain contract address from storehash.js
-    const ethAddress = await storeHash.options.address
-    console.log('ethAddress', ethAddress)
-    setState({ ...state, ethAddress })
-    // save document to IPFS,return its hash#, and set hash# to state
-    const result = await ipfs.add(bufferState)
-    console.log('result', result)
-    storeHash.methods.setHash(result.path).send({
-      from: accounts[0],
-    },
-    (error: Error, transactionHash: string) => {
-      console.log(transactionHash)
-      setState({
-        ...state,
-        transactionHash,
-      })
-    })
+    console.log('hey')
   }
 
   const setHash = async () => {
     try {
       setState({ ...state, blockNumber: 'waiting..' })
       setState({ ...state, gasUsed: 'waiting...' })
-      await web3.eth.getTransactionReceipt(
-        state.transactionHash,
-        (err: Error, txReceipt: TransactionReceipt) => {
-          console.log(err, txReceipt)
-          setState({ ...state, txReceipt })
-        },
-      )
     } catch (error) {
       console.log(error)
     }
   }
 
   const getHash = async () => {
-    const accounts = await web3.eth.getAccounts()
     try {
-      const result = storeHash.methods.getHash().send({
-        from: accounts[0],
-      },
-      (error: Error, transactionHash: string) => {
-        console.log(transactionHash)
-      })
-
-      console.log('result of hash from contract', result)
+      console.log('result of hash from contract')
     } catch (error) {
       console.log(error)
     }
   }
+
+  console.log('env', process.env)
   return (
-    <Container>
-      <StyledForm onSubmit={handleSubmit}>
-        <label id="imageUploadForm" htmlFor="imageUpload">please upload the file</label>
-        <input type="file" name="upload new image" id="imageUpload" onChange={captureFile} />
-        <Button type="submit" aria-labelledby="imageUploadForm">Upload Image</Button>
-      </StyledForm>
-      <>
-        {Object.values(state).map((stateKey) => (<p>{stateKey}</p>))}
-      </>
-      <Button onClick={setHash}> Get Transaction Receipt </Button>
-      <Button onClick={getHash}> Get file hash </Button>
+    <Container transparent={false} size="lg">
+      <StyledCreateNFTContainer>
+        <RainbowLightAccent container />
+        <h1>Create NFT</h1>
+        <StyledForm onSubmit={handleSubmit}>
+          <label id="imageUploadForm" htmlFor="imageUpload">please upload the file</label>
+          <input type="file" name="upload new image" id="imageUpload" onChange={captureFile} />
+          <Button type="submit" aria-labelledby="imageUploadForm">Upload Image</Button>
+        </StyledForm>
+        <Button onClick={setHash}> Get Transaction Receipt </Button>
+        <Button onClick={getHash}> Get file hash </Button>
+      </StyledCreateNFTContainer>
     </Container>
   )
 }
