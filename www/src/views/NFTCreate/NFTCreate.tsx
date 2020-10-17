@@ -1,64 +1,62 @@
-import React, { useState } from 'react'
+import React, {
+  FormEvent, useState, useCallback,
+} from 'react'
 import {
   Container,
   Button,
   RainbowLightAccent,
+  Input,
 } from '../../components'
 import {
   StyledForm,
   StyledCreateNFTContainer,
+  StyledH1,
+  StyledError,
+  StyledImageContainer,
+  StyledInputContainer,
 } from './parts'
+import { StyledDropzone } from './DropZone'
 
 declare const Buffer: any
 declare const hash: any
 
 const NFTCreate: React.FC = () => {
-  const [state, setState] = useState({
-    ethAddress: '',
-    ipfsHash: Array,
-    transactionHash: '',
-    blockNumber: '',
-    gasUsed: '',
-    txReceipt: null,
-  })
-  const [bufferState, setBufferState] = useState(null)
+  const [fileBuffer, setFileBuffer] = useState(null)
+  const [error, setError] = useState(null)
+  const [imageSrc, setImageSrc] = useState('')
 
-  const convertToBuffer = (reader: any) => {
-    // file is converted to a buffer for upload to IPFS
-
+  const convertToBuffer = useCallback((reader: FileReader) => {
     const buffer = Buffer.from(reader.result)
-    // set this buffer-using es6 syntax
-    setBufferState(buffer)
-  }
+    setFileBuffer(buffer)
+  }, [])
 
-  const captureFile = (event: any) => {
-    event.stopPropagation()
-    event.preventDefault()
-    const file = event.target.files[0]
-    const reader = new window.FileReader()
+  const captureFile = useCallback((file: File) => {
+    const reader = new FileReader()
     reader.readAsArrayBuffer(file)
-    reader.onloadend = () => convertToBuffer(reader)
-  }
-
-  const handleSubmit = async (e: any) => {
-    console.log('hey')
-  }
-
-  const setHash = async () => {
-    try {
-      setState({ ...state, blockNumber: 'waiting..' })
-      setState({ ...state, gasUsed: 'waiting...' })
-    } catch (error) {
-      console.log(error)
+    reader.onloadend = () => {
+      // convert to buffer to send to ipfs later
+      convertToBuffer(reader)
+      // create url for preview
+      const blob = new Blob([reader.result], { type: 'image/jpeg' })
+      const urlCreator = window.URL || window.webkitURL
+      setImageSrc(urlCreator.createObjectURL(blob))
     }
+  }, [convertToBuffer])
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault()
+    console.log('hey form submit!')
   }
 
-  const getHash = async () => {
-    try {
-      console.log('result of hash from contract')
-    } catch (error) {
-      console.log(error)
-    }
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    acceptedFiles.forEach((file) => {
+      setError(null)
+      captureFile(file)
+    })
+  }, [captureFile])
+
+  const onDropRejected = (file: any) => {
+    setError(`${file[0]?.errors[0]?.message} - please try again`)
   }
 
   console.log('env', process.env)
@@ -66,14 +64,20 @@ const NFTCreate: React.FC = () => {
     <Container transparent={false} size="lg">
       <StyledCreateNFTContainer>
         <RainbowLightAccent container />
-        <h1>Create NFT</h1>
+        <StyledH1>Create your NFT!</StyledH1>
         <StyledForm onSubmit={handleSubmit}>
-          <label id="imageUploadForm" htmlFor="imageUpload">please upload the file</label>
-          <input type="file" name="upload new image" id="imageUpload" onChange={captureFile} />
-          <Button type="submit" aria-labelledby="imageUploadForm">Upload Image</Button>
+          <StyledImageContainer>
+            <StyledDropzone
+              onDrop={onDrop}
+              onDropRejected={onDropRejected}
+            />
+            {imageSrc && <img src={imageSrc} alt="NFT Create" />}
+          </StyledImageContainer>
+          <StyledInputContainer>
+            <p>hello</p>
+          </StyledInputContainer>
         </StyledForm>
-        <Button onClick={setHash}> Get Transaction Receipt </Button>
-        <Button onClick={getHash}> Get file hash </Button>
+        {error && <StyledError>{error}</StyledError>}
       </StyledCreateNFTContainer>
     </Container>
   )

@@ -5,7 +5,10 @@ import {
 const theme = {
   borderRadius: 12,
   breakpoints: {
-    mobile: 400,
+    mobile: '400px',
+    tablet: '768px',
+    desktop: '992px',
+    desktopLarge: '1200px',
   },
   color: {
     black,
