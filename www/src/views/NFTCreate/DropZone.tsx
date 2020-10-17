@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { useDropzone } from 'react-dropzone'
 import styled from 'styled-components'
 
@@ -32,21 +32,18 @@ const Container = styled.div`
   transition: border .24s ease-in-out;
 `
 
-const CenteredMessage = styled.p`
-  margin: auto;
-`
-
 interface EventCallback<T1 = any, T2 = void> {
   (param1: T1): T2;
 }
 
 interface StyledDropzoneProps {
+  children: ReactNode,
   onDrop: EventCallback,
   onDropRejected: EventCallback,
 }
 
 export function StyledDropzone(props: StyledDropzoneProps) {
-  const { onDrop, onDropRejected } = props
+  const { onDrop, onDropRejected, children } = props
   const {
     getRootProps,
     getInputProps,
@@ -69,7 +66,7 @@ export function StyledDropzone(props: StyledDropzoneProps) {
       <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <input {...getInputProps()} />
-        <CenteredMessage>Select or Drop Image for NFT</CenteredMessage>
+        {children}
       </Container>
     </>
   )

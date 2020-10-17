@@ -125,6 +125,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   &:hover {
     background-color: ${(props) => props.theme.color.grey[100]};
   }
+  &:focus {
+    border: 2px solid ${({ theme }) => theme.color.blue[300]}
+  }
 `
 
 const StyledLink = styled(Link)`

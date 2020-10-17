@@ -1,5 +1,5 @@
 import {
-  black, green, grey, red, white,
+  black, green, grey, red, white, blue,
 } from './colors'
 
 const theme = {
@@ -21,6 +21,7 @@ const theme = {
       main: green[500],
     },
     white,
+    blue,
   },
   siteWidth: 1200,
   spacing: {
