@@ -133,7 +133,7 @@ const NFTCreate: React.FC = () => {
 
   const handleRoyaltiesChange = () => {
     console.log('handle royalties change')
-  } 
+  }
 
   return (
     <Container transparent={false} size="lg">
