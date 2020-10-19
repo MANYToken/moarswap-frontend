@@ -33,7 +33,7 @@ const App: React.FC = () => {
   const [useLoopingVideo, setUseLoopingVid] = useState(false)
 
   // todo: make sound play only on certain pages
-  const [muted, setMute] = useState(true)
+  const [muted, setMute] = useState(false)
 
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)

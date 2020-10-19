@@ -20,6 +20,8 @@ import {
   TextArea,
   ButtonContainer,
   DetailsContainer,
+  TwoColumnsContainer,
+  HalfWidthContainer,
 } from './parts'
 import {
   pinFileToIPFS,
@@ -32,12 +34,14 @@ declare const Buffer: any
 declare const hash: any
 
 const NFTCreate: React.FC = () => {
+  const [loading, setLoading] = useState(false)
   const [formFile, setFormFile] = useState(null)
   const [fileSize, setFileSize] = useState(null)
   const [ipfsImageHash, setIpfsImageHash] = useState(null)
   const [ipfsMetadataHash, setIpfsMetadataHash] = useState(null)
   const [nftName, setNftName] = useState('')
   const [nftDescription, setNftDescription] = useState('')
+  const [externalResourceLink, setExternalResourceLink] = useState('')
   const [error, setError] = useState(null)
   const [imageSrc, setImageSrc] = useState('')
 
@@ -58,13 +62,17 @@ const NFTCreate: React.FC = () => {
     name: nftName,
     description: nftDescription,
     image: `${PINATA_BASE_GATEWAY_URL}${ipfsHash}`,
+    // todo: get the proper value from opensea or rarible
+    unlockable: externalResourceLink,
   }), [
     nftName,
     nftDescription,
+    unlockable,
   ])
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    setLoading(true)
     // todo: form validation
     if (!formFile) {
       setError('Please upload picture')
@@ -88,9 +96,8 @@ const NFTCreate: React.FC = () => {
     } catch (err) {
       setError(`Error on upload metadata to IPFS ${err}`)
     }
+    setLoading(false)
     setIpfsMetadataHash(pinJSONMetadataResult.data.IpfsHash)
-
-    console.log('pinJSONMetadataResult', pinJSONMetadataResult)
   }
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -114,6 +121,19 @@ const NFTCreate: React.FC = () => {
     setNftDescription(target.value)
   }
 
+  const handleResourceChange = (event: SyntheticEvent) => {
+    const target = event.target as HTMLInputElement
+    setExternalResourceLink(target.value)
+  }
+
+  const handleCopiesChange = () => {
+    console.log('handle number of copies in contract')
+  }
+
+  const handleRoyaltiesChange = () => {
+    console.log('handle royalties change')
+  } 
+
   return (
     <Container transparent={false} size="lg">
       <StyledCreateNFTContainer>
@@ -135,6 +155,18 @@ const NFTCreate: React.FC = () => {
             <Input type="text" name="nft-name" onChange={handleNameChange} />
             <InputLabel>Description (optional)</InputLabel>
             <TextArea name="nft-description" onChange={handleDescriptionChange} />
+            <InputLabel>Link to external resource (optional)</InputLabel>
+            <Input type="text" name="external-link" onChange={handleResourceChange} />
+            <TwoColumnsContainer>
+              <HalfWidthContainer>
+                <InputLabel>Number of copies</InputLabel>
+                <Input type="number" name="copies" onChange={handleCopiesChange} />
+              </HalfWidthContainer>
+              <HalfWidthContainer>
+                <InputLabel>Royalties</InputLabel>
+                <Input type="number" name="royalties" onChange={handleRoyaltiesChange} />
+              </HalfWidthContainer>
+            </TwoColumnsContainer>
             <DetailsContainer>
               {error && <StyledError>{error}</StyledError>}
               <p>details:</p>
@@ -169,7 +201,7 @@ const NFTCreate: React.FC = () => {
             </DetailsContainer>
             <ButtonContainer>
               <Button type="submit">
-                Upload Your Metadata to IPFS
+                {loading ? 'Loading...' : 'Upload Your Metadata to IPFS'}
               </Button>
             </ButtonContainer>
           </StyledInputContainer>

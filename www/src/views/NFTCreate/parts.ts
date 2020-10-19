@@ -134,3 +134,21 @@ export const DetailsContainer = styled.article`
   font-size: 14px;
   margin-bottom: 20px;
 `
+export const TwoColumnsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: row;
+  }
+`
+
+export const HalfWidthContainer = styled.div`
+  width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 50%;
+  }
+`
