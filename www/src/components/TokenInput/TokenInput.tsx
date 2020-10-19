@@ -17,7 +17,7 @@ const TokenInput: React.FC<TokenInputProps> = ({
   onSelectMax,
   value,
 }) => (
-  <StyledTokenInput>
+  <div>
     <StyledMaxText>
       {max.toLocaleString()}
       {' '}
@@ -39,18 +39,8 @@ const TokenInput: React.FC<TokenInputProps> = ({
       placeholder="0"
       value={value}
     />
-  </StyledTokenInput>
+  </div>
 )
-
-/*
-            <div>
-              <Button size="sm" text="Max" />
-            </div>
-*/
-
-const StyledTokenInput = styled.div`
-
-`
 
 const StyledSpacer = styled.div`
   width: ${(props) => props.theme.spacing[3]}px;

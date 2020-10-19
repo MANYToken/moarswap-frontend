@@ -7,6 +7,7 @@ interface ButtonProps {
   children?: React.ReactNode,
   disabled?: boolean,
   href?: string,
+  type?: 'submit' | string,
   onClick?: () => void,
   size?: 'sm' | 'md' | 'lg',
   text?: string,
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   href,
   onClick,
   size,
+  type,
   text,
   to,
   variant,
@@ -122,6 +124,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   width: 100%;
   &:hover {
     background-color: ${(props) => props.theme.color.grey[100]};
+  }
+  &:focus {
+    border: 2px solid ${({ theme }) => theme.color.blue[300]}
   }
 `
 
