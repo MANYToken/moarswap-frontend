@@ -1,81 +1,68 @@
+/* eslint-disable */
 import BigNumber from 'bignumber.js'
-import {ethers} from 'ethers'
+import { ethers } from 'ethers'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
 })
 
-export const getMasterChefAddress = (sushi) => {
-  return sushi && sushi.masterChefAddress
-}
-export const getSushiAddress = (sushi) => {
-  return sushi && sushi.sushiAddress
-}
-export const getWethContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.weth
-}
+export const getMasterChefAddress = (sushi) => sushi && sushi.masterChefAddress
+export const getSushiAddress = (sushi) => sushi && sushi.sushiAddress
+export const getWethContract = (sushi) => sushi && sushi.contracts && sushi.contracts.weth
 
-export const getMasterChefContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.masterChef
-}
-export const getSushiContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.sushi
-}
+export const getMasterChefContract = (sushi) => sushi && sushi.contracts && sushi.contracts.masterChef
+export const getSushiContract = (sushi) => sushi && sushi.contracts && sushi.contracts.sushi
 
-export const getFarms = (sushi) => {
-  return sushi
-    ? sushi.contracts.pools.map(
-        ({
-          pid,
-          name,
-          symbol,
-          icon,
-          tokenAddress,
-          tokenSymbol,
-          tokenContract,
-          lpAddress,
-          lpContract,
-          add_lp,
-          pair_url,
-        }) => ({
-          pid,
-          pair_url,
-          id: symbol,
-          name,
-          lpToken: symbol,
-          lpTokenAddress: lpAddress,
-          lpContract,
-          tokenAddress,
-          tokenSymbol,
-          tokenContract,
-          earnToken: 'moar',
-          earnTokenAddress: sushi.contracts.sushi.options.address,
-          icon,
-          add_lp,
-        })
-      )
-    : []
-}
+export const getFarms = (sushi) => (sushi
+  ? sushi.contracts.pools.map(
+    ({
+      pid,
+      name,
+      symbol,
+      icon,
+      tokenAddress,
+      tokenSymbol,
+      tokenContract,
+      lpAddress,
+      lpContract,
+      add_lp,
+      pair_url,
+    }) => ({
+      pid,
+      pair_url,
+      id: symbol,
+      name,
+      lpToken: symbol,
+      lpTokenAddress: lpAddress,
+      lpContract,
+      tokenAddress,
+      tokenSymbol,
+      tokenContract,
+      earnToken: 'moar',
+      earnTokenAddress: sushi.contracts.sushi.options.address,
+      icon,
+      add_lp,
+    }),
+  )
+  : [])
 
 export const getPoolWeight = async (masterChefContract, pid) => {
-  const {allocPoint} = await masterChefContract.methods.poolInfo(pid).call()
+  const { allocPoint } = await masterChefContract.methods.poolInfo(pid).call()
   const totalAllocPoint = await masterChefContract.methods
     .totalAllocPoint()
     .call()
   return new BigNumber(allocPoint).div(new BigNumber(totalAllocPoint))
 }
 
-export const getEarned = async (masterChefContract, pid, account) => {
-  return masterChefContract.methods.pendingSushi(pid, account).call()
-}
+export const getEarned = async (masterChefContract, pid, account) => masterChefContract.methods.pendingSushi(pid, account).call()
 
 export const getTotalLPWethValue = async (
   masterChefContract,
   wethContract,
   lpContract,
   tokenContract,
-  pid
+  pid,
 ) => {
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods
@@ -113,54 +100,44 @@ export const getTotalLPWethValue = async (
   }
 }
 
-export const approve = async (lpContract, masterChefContract, account) => {
-  return lpContract.methods
-    .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
-    .send({from: account})
-}
+export const approve = async (lpContract, masterChefContract, account) => lpContract.methods
+  .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
+  .send({ from: account })
 
-export const getSushiSupply = async (sushi) => {
-  return new BigNumber(await sushi.contracts.sushi.methods.totalSupply().call())
-}
+export const getSushiSupply = async (sushi) => new BigNumber(await sushi.contracts.sushi.methods.totalSupply().call())
 
-export const stake = async (masterChefContract, pid, amount, account) => {
-  return masterChefContract.methods
-    .deposit(
-      pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
-    )
-    .send({from: account})
-    .on('transactionHash', (tx) => {
-      console.log(tx)
-      return tx.transactionHash
-    })
-}
+export const stake = async (masterChefContract, pid, amount, account) => masterChefContract.methods
+  .deposit(
+    pid,
+    new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+  )
+  .send({ from: account })
+  .on('transactionHash', (tx) => {
+    console.log(tx)
+    return tx.transactionHash
+  })
 
-export const unstake = async (masterChefContract, pid, amount, account) => {
-  return masterChefContract.methods
-    .withdraw(
-      pid,
-      new BigNumber(amount).times(new BigNumber(10).pow(18)).toString()
-    )
-    .send({from: account})
-    .on('transactionHash', (tx) => {
-      console.log(tx)
-      return tx.transactionHash
-    })
-}
-export const harvest = async (masterChefContract, pid, account) => {
-  return masterChefContract.methods
-    .deposit(pid, '0')
-    .send({from: account})
-    .on('transactionHash', (tx) => {
-      console.log(tx)
-      return tx.transactionHash
-    })
-}
+export const unstake = async (masterChefContract, pid, amount, account) => masterChefContract.methods
+  .withdraw(
+    pid,
+    new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+  )
+  .send({ from: account })
+  .on('transactionHash', (tx) => {
+    console.log(tx)
+    return tx.transactionHash
+  })
+export const harvest = async (masterChefContract, pid, account) => masterChefContract.methods
+  .deposit(pid, '0')
+  .send({ from: account })
+  .on('transactionHash', (tx) => {
+    console.log(tx)
+    return tx.transactionHash
+  })
 
 export const getStaked = async (masterChefContract, pid, account) => {
   try {
-    const {amount} = await masterChefContract.methods
+    const { amount } = await masterChefContract.methods
       .userInfo(pid, account)
       .call()
     return new BigNumber(amount)

@@ -39,7 +39,8 @@ const TransactionsProvider: React.FC = ({ children }) => {
     <Context.Provider value={{
       transactions,
       onAddTransaction: handleAddTransaction,
-    }}>
+    }}
+    >
       {children}
     </Context.Provider>
   )

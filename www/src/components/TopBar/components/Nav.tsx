@@ -1,22 +1,26 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Nav: React.FC = () => {
-  return (
-    <StyledNav>
-      <StyledLink exact activeClassName="active" to="/">
-        Home
-      </StyledLink>
-      <StyledLink exact activeClassName="active" to="/farms">
-        Menu
-      </StyledLink>
-      <StyledLink exact activeClassName="active" to="/nfts">
-        NFTs
-      </StyledLink>
-    </StyledNav>
-  )
-}
+const Nav: React.FC = () => (
+  <StyledNav>
+    <StyledLink exact activeClassName="active" to="/">
+      Home
+    </StyledLink>
+    <StyledLink exact activeClassName="active" to="/farms">
+      Menu
+    </StyledLink>
+    {/* <StyledLink exact activeClassName="active" to="/create-nft">
+      Create Nft
+    </StyledLink> */}
+    {/* <StyledLink exact activeClassName="active" to="/nfts">
+      NFTs
+    </StyledLink>
+    <StyledLink exact activeClassName="active" to="/my">
+      My collectibles
+    </StyledLink> */}
+  </StyledNav>
+)
 
 const StyledNav = styled.nav`
   align-items: center;

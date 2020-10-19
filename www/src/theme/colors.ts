@@ -1,6 +1,14 @@
 export const white = '#FFF'
 export const black = '#000'
 
+export const blue = {
+  100: '#7400b8',
+  200: '#6930c3',
+  300: '#48bfe3',
+  400: '#72efdd',
+  500: '#80ffdb',
+}
+
 export const green = {
   500: '##00d1810',
 }

@@ -11,23 +11,21 @@ interface TopBarProps {
   onPresentMobileMenu: () => void
 }
 
-const TopBar: React.FC<TopBarProps> = ({onPresentMobileMenu}) => {
-  return (
-    <StyledTopBar>
-      <Container size="lg">
-        <StyledTopBarInner>
-          <StyledLogoWrapper>
-            <Logo />
-          </StyledLogoWrapper>
-          <Nav />
-          <StyledAccountButtonWrapper>
-            <AccountButton />
-          </StyledAccountButtonWrapper>
-        </StyledTopBarInner>
-      </Container>
-    </StyledTopBar>
-  )
-}
+const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => (
+  <StyledTopBar>
+    <Container size="lg">
+      <StyledTopBarInner>
+        <StyledLogoWrapper>
+          <Logo />
+        </StyledLogoWrapper>
+        <Nav />
+        <StyledAccountButtonWrapper>
+          <AccountButton />
+        </StyledAccountButtonWrapper>
+      </StyledTopBarInner>
+    </Container>
+  </StyledTopBar>
+)
 
 const StyledLogoWrapper = styled.div`
   width: 260px;

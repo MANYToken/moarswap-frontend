@@ -1,18 +1,18 @@
-import React, {useEffect, useMemo} from 'react'
-import {useParams} from 'react-router-dom'
+import React, { useEffect, useMemo } from 'react'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import {useWallet} from 'use-wallet'
-import {provider} from 'web3-core'
+import { useWallet } from 'use-wallet'
+import { provider } from 'web3-core'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import useFarm from '../../hooks/useFarm'
 
-import {getContract} from '../../utils/erc20'
+import { getContract } from '../../utils/erc20'
 import Harvest from './components/Harvest'
 import Stake from './components/Stake'
 
 const Farm: React.FC = () => {
-  const {farmId} = useParams()
+  const { farmId } = useParams()
   // @ts-ignore
   const {
     pid,
@@ -21,7 +21,9 @@ const Farm: React.FC = () => {
     earnToken,
     name,
     icon,
+    // eslint-disable-next-line camelcase
     add_lp,
+    // eslint-disable-next-line camelcase
     pair_url,
   } = useFarm(farmId) || {
     pid: 0,
@@ -39,19 +41,15 @@ const Farm: React.FC = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const {ethereum} = useWallet()
+  const { ethereum } = useWallet()
 
-  const lpContract = useMemo(() => {
-    return getContract(ethereum as provider, lpTokenAddress)
-  }, [ethereum, lpTokenAddress])
+  const lpContract = useMemo(
+    () => getContract(ethereum as provider, lpTokenAddress), [ethereum, lpTokenAddress],
+  )
 
-  const lpTokenName = useMemo(() => {
-    return lpToken.toUpperCase()
-  }, [lpToken])
+  const lpTokenName = useMemo(() => lpToken.toUpperCase(), [lpToken])
 
-  const earnTokenName = useMemo(() => {
-    return earnToken.toUpperCase()
-  }, [earnToken])
+  const earnTokenName = useMemo(() => earnToken.toUpperCase(), [earnToken])
 
   return (
     <>
@@ -59,7 +57,9 @@ const Farm: React.FC = () => {
         icon={icon}
         subtitle={`Deposit ${lpTokenName} Tokens and earn ${earnTokenName}`}
         title={name}
+        // eslint-disable-next-line camelcase
         pair_url={pair_url}
+        // eslint-disable-next-line camelcase
         add_lp={add_lp}
       />
       <StyledFarm>
@@ -78,7 +78,10 @@ const Farm: React.FC = () => {
         </StyledCardsWrapper>
         <Spacer size="lg" />
         <StyledInfo>
-          ⭐️ Every time you stake and unstake LP tokens, the contract will
+          <span role="img">
+            ⭐️
+          </span>
+          Every time you stake and unstake LP tokens, the contract will
           automagically harvest MOAR rewards for you!
         </StyledInfo>
         <Spacer size="lg" />

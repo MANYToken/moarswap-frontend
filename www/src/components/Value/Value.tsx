@@ -21,7 +21,7 @@ const Value: React.FC<ValueProps> = ({ value, decimals }) => {
 
   return (
     <StyledValue>
-      {typeof value == 'string' ? (
+      {typeof value === 'string' ? (
         value
       ) : (
         <CountUp

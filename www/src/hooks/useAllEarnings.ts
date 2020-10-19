@@ -17,12 +17,10 @@ const useAllEarnings = () => {
   const block = useBlock()
 
   const fetchAllBalances = useCallback(async () => {
-    const balances: Array<BigNumber> = await Promise.all(
-      farms.map(({ pid }: { pid: number }) =>
-        getEarned(masterChefContract, pid, account),
-      ),
+    const allFarmBalances: Array<BigNumber> = await Promise.all(
+      farms.map(({ pid }: { pid: number }) => getEarned(masterChefContract, pid, account)),
     )
-    setBalance(balances)
+    setBalance(allFarmBalances)
   }, [account, masterChefContract, sushi])
 
   useEffect(() => {

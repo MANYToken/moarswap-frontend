@@ -33,7 +33,10 @@ export const addTransaction = (transaction: Transaction): AddTransactionAction =
   transaction,
 })
 
-export const receiveTxReceipt = (txHash: string, receipt: TransactionReceipt): ReceiveTxReceiptAction => ({
+export const receiveTxReceipt = (
+  txHash: string,
+  receipt: TransactionReceipt,
+): ReceiveTxReceiptAction => ({
   type: RECEIVE_TX_RECEIPT,
   txHash,
   receipt,
@@ -46,7 +49,7 @@ export const setTransactions = (transactions: TransactionsMap): SetTransactionsA
 
 export const initialState: TransactionsState = {
   initialized: false,
-  transactions: {}
+  transactions: {},
 }
 
 const reducer = (state: TransactionsState, action: TransactionsActions): TransactionsState => {
@@ -57,7 +60,7 @@ const reducer = (state: TransactionsState, action: TransactionsActions): Transac
         transactions: {
           ...state.transactions,
           [action.transaction.hash]: action.transaction,
-        }
+        },
       }
     case RECEIVE_TX_RECEIPT:
       return {
@@ -67,8 +70,8 @@ const reducer = (state: TransactionsState, action: TransactionsActions): Transac
           [action.txHash]: {
             ...state.transactions[action.txHash],
             receipt: action.receipt,
-          }
-        }
+          },
+        },
       }
     case SET_TRANSACTIONS:
       return {

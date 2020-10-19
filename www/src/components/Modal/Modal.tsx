@@ -1,17 +1,15 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export interface ModalProps {
   onDismiss?: () => void
 }
 
-const Modal: React.FC = ({children}) => {
-  return (
-    <StyledResponsiveWrapper>
-      <StyledModal>{children}</StyledModal>
-    </StyledResponsiveWrapper>
-  )
-}
+const Modal: React.FC = ({ children }) => (
+  <StyledResponsiveWrapper>
+    <StyledModal>{children}</StyledModal>
+  </StyledResponsiveWrapper>
+)
 
 const mobileKeyframes = keyframes`
   0% {
@@ -30,7 +28,7 @@ const StyledResponsiveWrapper = styled.div`
   position: relative;
   width: 100%;
   max-width: 512px;
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     flex: 1;
     position: absolute;
     top: 100%;

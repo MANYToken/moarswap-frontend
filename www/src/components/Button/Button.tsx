@@ -7,6 +7,7 @@ interface ButtonProps {
   children?: React.ReactNode,
   disabled?: boolean,
   href?: string,
+  type?: 'submit' | string,
   onClick?: () => void,
   size?: 'sm' | 'md' | 'lg',
   text?: string,
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   href,
   onClick,
   size,
+  type,
   text,
   to,
   variant,
@@ -29,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   let buttonColor: string
   switch (variant) {
     case 'secondary':
+      // eslint-disable-next-line prefer-destructuring
       buttonColor = color.grey[500]
       break
     case 'default':
@@ -44,6 +47,7 @@ const Button: React.FC<ButtonProps> = ({
     case 'sm':
       boxShadow = `4px 4px 8px ${color.grey[300]},
         -8px -8px 16px ${color.grey[100]}FF;`
+      // eslint-disable-next-line prefer-destructuring
       buttonPadding = spacing[3]
       buttonSize = 36
       fontSize = 14
@@ -51,6 +55,7 @@ const Button: React.FC<ButtonProps> = ({
     case 'lg':
       boxShadow = `6px 6px 12px ${color.grey[300]},
         -12px -12px 24px ${color.grey[100]}ff;`
+      // eslint-disable-next-line prefer-destructuring
       buttonPadding = spacing[4]
       buttonSize = 72
       fontSize = 16
@@ -59,6 +64,7 @@ const Button: React.FC<ButtonProps> = ({
     default:
       boxShadow = `6px 6px 12px ${color.grey[300]},
         -12px -12px 24px -2px ${color.grey[100]}ff;`
+      // eslint-disable-next-line prefer-destructuring
       buttonPadding = spacing[4]
       buttonSize = 56
       fontSize = 16
@@ -67,11 +73,10 @@ const Button: React.FC<ButtonProps> = ({
   const ButtonChild = useMemo(() => {
     if (to) {
       return <StyledLink to={to}>{text}</StyledLink>
-    } else if (href) {
+    } if (href) {
       return <StyledExternalLink href={href} target="__blank">{text}</StyledExternalLink>
-    } else {
-      return text
     }
+    return text
   }, [href, text, to])
 
   return (
@@ -101,24 +106,27 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
-  background-color: ${props => props.theme.color.grey[200]};
+  background-color: ${(props) => props.theme.color.grey[200]};
   border: 0;
   border-radius: 12px;
-  box-shadow: ${props => props.boxShadow};
-  color: ${props => !props.disabled ? props.color : `${props.color}55`};
+  box-shadow: ${(props) => props.boxShadow};
+  color: ${(props) => (!props.disabled ? props.color : `${props.color}55`)};
   cursor: pointer;
   display: flex;
-  font-size: ${props => props.fontSize}px;
+  font-size: ${(props) => props.fontSize}px;
   font-weight: 700;
-  height: ${props => props.size}px;
+  height: ${(props) => props.size}px;
   justify-content: center;
   outline: none;
-  padding-left: ${props => props.padding}px;
-  padding-right: ${props => props.padding}px;
-  pointer-events: ${props => !props.disabled ? undefined : 'none'};
+  padding-left: ${(props) => props.padding}px;
+  padding-right: ${(props) => props.padding}px;
+  pointer-events: ${(props) => (!props.disabled ? undefined : 'none')};
   width: 100%;
   &:hover {
-    background-color: ${props => props.theme.color.grey[100]};
+    background-color: ${(props) => props.theme.color.grey[100]};
+  }
+  &:focus {
+    border: 2px solid ${({ theme }) => theme.color.blue[300]}
   }
 `
 
@@ -129,8 +137,8 @@ const StyledLink = styled(Link)`
   flex: 1;
   height: 56px;
   justify-content: center;
-  margin: 0 ${props => -props.theme.spacing[4]}px;
-  padding: 0 ${props => props.theme.spacing[4]}px;
+  margin: 0 ${(props) => -props.theme.spacing[4]}px;
+  padding: 0 ${(props) => props.theme.spacing[4]}px;
   text-decoration: none;
 `
 
@@ -141,8 +149,8 @@ const StyledExternalLink = styled.a`
   flex: 1;
   height: 56px;
   justify-content: center;
-  margin: 0 ${props => -props.theme.spacing[4]}px;
-  padding: 0 ${props => props.theme.spacing[4]}px;
+  margin: 0 ${(props) => -props.theme.spacing[4]}px;
+  padding: 0 ${(props) => props.theme.spacing[4]}px;
   text-decoration: none;
 `
 

@@ -1,9 +1,11 @@
 import Web3 from 'web3'
+// eslint-disable-next-line
 import { provider } from 'web3-core'
 import { Contract } from 'web3-eth-contract'
 import { AbiItem } from 'web3-utils'
 import ERC20ABI from '../constants/abi/ERC20.json'
 
+// eslint-disable-next-line no-shadow
 export const getContract = (provider: provider, address: string) => {
   const web3 = new Web3(provider)
   const contract = new web3.eth.Contract(
@@ -29,6 +31,7 @@ export const getAllowance = async (
 }
 
 export const getBalance = async (
+  // eslint-disable-next-line no-shadow
   provider: provider,
   tokenAddress: string,
   userAddress: string,
