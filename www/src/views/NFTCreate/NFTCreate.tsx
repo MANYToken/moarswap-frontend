@@ -67,7 +67,7 @@ const NFTCreate: React.FC = () => {
   }), [
     nftName,
     nftDescription,
-    unlockable,
+    externalResourceLink,
   ])
 
   const handleSubmit = async (event: FormEvent) => {
@@ -107,6 +107,7 @@ const NFTCreate: React.FC = () => {
     })
   }, [captureFile])
 
+  // todo: add useCallback
   const onDropRejected = (file: any) => {
     setError(`${file[0]?.errors[0]?.message} - please try again`)
   }
