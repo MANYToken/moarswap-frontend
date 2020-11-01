@@ -28,22 +28,22 @@ const StyledNav = styled.nav`
 `
 
 const StyledLink = styled(NavLink)`
-  color: ${(props) => props.theme.color.grey[400]};
+  color: ${({ theme }) => theme.color.grey[400]};
   font-weight: 700;
-  padding-left: ${(props) => props.theme.spacing[3]}px;
-  padding-right: ${(props) => props.theme.spacing[3]}px;
+  padding-left: ${({ theme }) => theme.spacing[3]}px;
+  padding-right: ${({ theme }) => theme.spacing[3]}px;
   text-decoration: none;
-  text-shadow: #1f1f21 2px 3px 0px;
+  text-shadow: ${({ theme }) => theme.color.yellow.golden} -2px -1px 2px;
   font-size: 26px;
   &:hover {
-    color: ${(props) => props.theme.color.grey[500]};
+    color: ${({ theme }) => theme.color.grey[500]};
   }
   &.active {
-    color: ${(props) => props.theme.color.primary.main};
+    color: ${({ theme }) => theme.color.primary.main};
   }
   @media (max-width: 400px) {
-    padding-left: ${(props) => props.theme.spacing[2]}px;
-    padding-right: ${(props) => props.theme.spacing[2]}px;
+    padding-left: ${({ theme }) => theme.spacing[2]}px;
+    padding-right: ${({ theme }) => theme.spacing[2]}px;
   }
 `
 

@@ -78,7 +78,6 @@ const StyledContainer = styled.div`
 `
 
 const StyledTitle = styled.h1`
-  font-family: 'Kaushan Script', sans-serif;
   color: ${(props) => props.theme.color.grey[600]};
   font-size: 36px;
   font-weight: 700;

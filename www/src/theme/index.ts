@@ -1,5 +1,6 @@
+import { brotliDecompress } from 'zlib'
 import {
-  black, green, grey, red, white, blue,
+  black, green, grey, red, white, blue, yellow,
 } from './colors'
 
 const theme = {
@@ -13,15 +14,18 @@ const theme = {
   color: {
     black,
     grey,
+    green,
+    red,
     primary: {
-      light: red[200],
-      main: red[500],
+      light: yellow.golden,
+      main: black,
     },
     secondary: {
-      main: green[500],
+      main: blue.golden_complimentary,
     },
     white,
     blue,
+    yellow,
   },
   siteWidth: 1200,
   spacing: {

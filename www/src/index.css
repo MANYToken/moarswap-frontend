@@ -28,8 +28,10 @@ video {
 }
 
 .mute-icon {
+  border: 3px solid rgba(255,215,0,0.76);
+  border-radius: 6px 6px 6px 6px;
 	position:fixed;
-	bottom:0;
+	bottom: 0;
 	right: 0;
 	cursor: pointer;
 	padding-right: 14px;

@@ -2,15 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import chadChef from '../../assets/img/chefchad.png'
+import manyMoarSilverLogo from '../../assets/img/MM_logo_silver_400x.png'
 
 const Logo: React.FC = () => (
   <StyledLogo to="/">
-    <img src={chadChef} height="32" style={{ marginTop: -4 }} />
+    <img src={manyMoarSilverLogo} height="32" style={{ marginTop: -4 }} />
     <StyledText>
       MOAR
       {' '}
-      <MasterChefText>ChadChef</MasterChefText>
     </StyledText>
   </StyledLogo>
 )
