@@ -12,24 +12,24 @@ const RainbowLight = keyframes`
 }
 `
 
-interface RainbowLightAccent {
+interface GoldenLightAccent {
   container?: boolean,
 }
 
-const RainbowLightAccent = styled.div<RainbowLightAccent>`
+const GoldenLightAccent = styled.div<GoldenLightAccent>`
   background: linear-gradient(
     45deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 154, 0, 1) 10%,
-    rgba(208, 222, 33, 1) 20%,
-    rgba(79, 220, 74, 1) 30%,
-    rgba(63, 218, 216, 1) 40%,
-    rgba(47, 201, 226, 1) 50%,
-    rgba(28, 127, 238, 1) 60%,
-    rgba(95, 21, 242, 1) 70%,
-    rgba(186, 12, 248, 1) 80%,
-    rgba(251, 7, 217, 1) 90%,
-    rgba(255, 0, 0, 1) 100%
+    rgba(250, 250, 210, 1) 0%,
+    rgba(238, 232, 170, 1) 10%,
+    rgba(240, 230, 140, 1) 20%,
+    rgba(218, 165, 32, 1) 30%,
+    rgba(255, 215, 0, 1) 40%,
+    rgba(255, 165, 0, 1) 50%,
+    rgba(255, 140, 0, 1) 60%,
+    rgba(205, 133, 63, 1) 70%,
+    rgba(210, 105, 30, 1) 80%,
+    rgba(139, 69, 19, 1) 90%,
+    rgba(255, 215, 0, 1) 100%
   );
   background-size: 300% 300%;
   animation: ${RainbowLight} 2s linear infinite;
@@ -44,4 +44,4 @@ const RainbowLightAccent = styled.div<RainbowLightAccent>`
   margin: ${({ container }) => (container ? '-25px' : 0)};
 `
 
-export default RainbowLightAccent
+export default GoldenLightAccent

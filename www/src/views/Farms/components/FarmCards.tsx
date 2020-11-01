@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
 import {
   Button,
-  RainbowLightAccent,
+  GoldenLightAccent,
 } from '../../../components'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
@@ -131,7 +131,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
   return (
     <StyledCardWrapper>
-      {farm.tokenSymbol === 'MOAR' && <RainbowLightAccent />}
+      {farm.tokenSymbol === 'MOAR' && <GoldenLightAccent />}
       <Card>
         <CardContent>
           <StyledContent>
@@ -199,6 +199,7 @@ const StyledLoadingWrapper = styled.div`
 
 const StyledRow = styled.div`
   display: flex;
+  justify-content: center;
   margin-bottom: ${(props) => props.theme.spacing[4]}px;
   flex-flow: row wrap;
   @media (max-width: 768px) {

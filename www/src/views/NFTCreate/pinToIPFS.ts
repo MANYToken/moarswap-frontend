@@ -3,7 +3,6 @@ const axios = require('axios')
 export const PINATA_BASE_GATEWAY_URL = 'https://gateway.pinata.cloud/ipfs/'
 
 export const pinFileToIPFS = (file: File) => {
-  const { REACT_APP_PINATA_API, REACT_APP_PINATA_API_SECRET } = process.env
   const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS'
 
   // we gather a local file for this example, but any valid readStream source will work here.
@@ -16,8 +15,8 @@ export const pinFileToIPFS = (file: File) => {
       maxContentLength: 'Infinity', // this is needed to prevent axios from erroring out with large files
       headers: {
         'Content-Type': 'multipart/form-data;',
-        pinata_api_key: REACT_APP_PINATA_API,
-        pinata_secret_api_key: REACT_APP_PINATA_API_SECRET,
+        pinata_api_key: '396411e5905829c35a90',
+        pinata_secret_api_key: '98f8498d8baa49a2a19153973fb7bce3f19a3108d731b9670f7c9fd7858208cc',
       },
     })
 }
@@ -29,7 +28,6 @@ interface pinJSONToIPFSInterface {
 }
 
 export const pinJSONToIPFS = (JSONBody: pinJSONToIPFSInterface) => {
-  const { REACT_APP_PINATA_API, REACT_APP_PINATA_API_SECRET } = process.env
   const url = 'https://api.pinata.cloud/pinning/pinJSONToIPFS'
   return axios
     .post(
@@ -37,8 +35,8 @@ export const pinJSONToIPFS = (JSONBody: pinJSONToIPFSInterface) => {
       JSONBody,
       {
         headers: {
-          pinata_api_key: REACT_APP_PINATA_API,
-          pinata_secret_api_key: REACT_APP_PINATA_API_SECRET,
+          pinata_api_key: '396411e5905829c35a90',
+          pinata_secret_api_key: '98f8498d8baa49a2a19153973fb7bce3f19a3108d731b9670f7c9fd7858208cc',
         },
       },
     )
