@@ -3,7 +3,6 @@ const axios = require('axios')
 export const PINATA_BASE_GATEWAY_URL = 'https://gateway.pinata.cloud/ipfs/'
 
 export const pinFileToIPFS = (file: File) => {
-  const { REACT_APP_PINATA_API, REACT_APP_PINATA_API_SECRET } = process.env
   const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS'
 
   // we gather a local file for this example, but any valid readStream source will work here.

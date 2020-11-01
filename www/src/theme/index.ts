@@ -1,4 +1,3 @@
-import { brotliDecompress } from 'zlib'
 import {
   black, green, grey, red, white, blue, yellow,
 } from './colors'
