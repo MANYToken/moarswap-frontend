@@ -1,11 +1,11 @@
 import Container from './Container'
 import Button from './Button'
-import RainbowLightAccent from './RainbowLightAccent'
+import GoldenLightAccent from './GoldenLightAccent'
 import Input from './Input'
 
 export {
   Container,
   Button,
-  RainbowLightAccent,
+  GoldenLightAccent,
   Input,
 }

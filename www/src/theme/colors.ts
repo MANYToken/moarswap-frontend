@@ -7,10 +7,11 @@ export const blue = {
   300: '#48bfe3',
   400: '#72efdd',
   500: '#80ffdb',
+  golden_complimentary: '#0028ff',
 }
 
 export const green = {
-  500: '##00d1810',
+  500: '#0d1810',
 }
 
 export const red = {
@@ -27,4 +28,8 @@ export const grey = {
   500: '#805e49',
   600: '#5b3926',
   800: '#2d1e12',
+}
+
+export const yellow = {
+  golden: '#FFD700',
 }
