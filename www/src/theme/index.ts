@@ -1,5 +1,5 @@
 import {
-  black, green, grey, red, white, blue, yellow,
+  black, green, grey, red, white, blue,
 } from './colors'
 
 const theme = {
@@ -13,18 +13,15 @@ const theme = {
   color: {
     black,
     grey,
-    green,
-    red,
     primary: {
-      light: yellow.golden,
-      main: black,
+      light: red[200],
+      main: red[500],
     },
     secondary: {
-      main: blue.golden_complimentary,
+      main: green[500],
     },
     white,
     blue,
-    yellow,
   },
   siteWidth: 1200,
   spacing: {

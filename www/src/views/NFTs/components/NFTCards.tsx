@@ -6,7 +6,7 @@ import CardContent from '../../../components/CardContent'
 import Spacer from '../../../components/Spacer'
 import {
   Button,
-  GoldenLightAccent,
+  RainbowLightAccent,
 } from '../../../components'
 
 interface NFTCards {
@@ -42,7 +42,7 @@ const NFTCard: React.FC<NFTCardProps> = ({ nft, path }) => {
 
   return (
     <StyledCardWrapper>
-      <GoldenLightAccent />
+      <RainbowLightAccent />
       <Card>
         <CardContent>
           <StyledContent>

@@ -67,4 +67,19 @@ export const supportedPools = [
     pair_url: 'https://uniswap.info/pair/0xb1a6876ad98fba649a66be916559039abdd3dbbe',
     add_lp: 'https://app.uniswap.org/#/add/0xab7aaf9e485a3bc885985184abe9fc6aba727bd6/0xbf131dcbe3436dab8a7c82d9c3666d652ca38eab',
   },
+  {
+    pid: 2,
+    lpAddresses: {
+      1: '0x10b4bbb2773ab474e9bcb4d71acf5b8625dff9f0',
+    },
+    tokenAddresses: {
+      1: '0xbf131dcbe3436dab8a7c82d9c3666d652ca38eab',
+    },
+    name: 'MORE $MOAR',
+    symbol: 'MOAR-ETH UNI-V2 LP',
+    tokenSymbol: 'MOAR',
+    icon: '🐌',
+    pair_url: 'https://uniswap.info/pair/0x10b4bbb2773ab474e9bcb4d71acf5b8625dff9f0',
+    add_lp: 'https://app.uniswap.org/#/add/0xbf131dcbe3436dab8a7c82d9c3666d652ca38eab/ETH',
+  },
 ]

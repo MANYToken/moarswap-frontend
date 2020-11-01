@@ -4,7 +4,7 @@ import React, {
 import {
   Container,
   Button,
-  GoldenLightAccent,
+  RainbowLightAccent,
 } from '../../components'
 import {
   StyledForm,
@@ -138,7 +138,7 @@ const NFTCreate: React.FC = () => {
   return (
     <Container transparent={false} size="lg">
       <StyledCreateNFTContainer>
-        <GoldenLightAccent container />
+        <RainbowLightAccent container />
         <StyledH1>Create your NFT!</StyledH1>
         <StyledForm onSubmit={handleSubmit}>
           <DropdownContainer>

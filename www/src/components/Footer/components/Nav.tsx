@@ -39,17 +39,16 @@ const StyledNav = styled.nav`
   }
 `
 
-// export as common styled component
 const StyledLink = styled.a`
-  color: ${({ theme }) => theme.color.black};
-  padding-left: ${({ theme }) => theme.spacing[3]}px;
-  padding-right: ${({ theme }) => theme.spacing[3]}px;
+  color: ${(props) => props.theme.color.grey[400]};
+  padding-left: ${(props) => props.theme.spacing[3]}px;
+  padding-right: ${(props) => props.theme.spacing[3]}px;
   text-decoration: none;
-  text-shadow:  ${({ theme }) => theme.color.yellow.golden} 1px 1px 5px;
+  text-shadow: #5b3926 2px 3px 0px;
   font-weight: 700;
   font-size: 24px;
   &:hover {
-    color: ${({ theme }) => theme.color.grey[500]};
+    color: ${(props) => props.theme.color.grey[500]};
   }
 
   @media (max-width: 400px) {

@@ -16,7 +16,6 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => (
     <Container size="lg">
       <StyledTopBarInner>
         <StyledLogoWrapper>
-          {/* removing logo for now */}
           <Logo />
         </StyledLogoWrapper>
         <Nav />

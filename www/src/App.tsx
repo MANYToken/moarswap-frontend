@@ -33,7 +33,7 @@ const App: React.FC = () => {
   const [useLoopingVideo, setUseLoopingVid] = useState(false)
 
   // todo: make sound play only on certain pages
-  const [muted, setMute] = useState(true)
+  const [muted, setMute] = useState(false)
 
   const handleDismissMobileMenu = useCallback(() => {
     setMobileMenu(false)
@@ -50,7 +50,6 @@ const App: React.FC = () => {
       preload="auto"
       muted={muted || useLoopingVideo === false}
       loop={false}
-      poster={bgVidPic}
       controls={false}
       onEnded={(el) => {
         const element = el
@@ -70,7 +69,6 @@ const App: React.FC = () => {
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <FontAwesomeIcon
           icon={muted ? faVolumeOff : faVolumeUp}
-          border
           className="mute-icon"
           size="2x"
           onClick={() => {
@@ -81,10 +79,10 @@ const App: React.FC = () => {
         <video
           playsInline
           autoPlay
-          preload="none"
           muted={muted}
           loop={false}
           controls={false}
+          poster={bgVidPic}
           onEnded={(el) => {
             const element = el
             element.currentTarget.style.display = 'none'

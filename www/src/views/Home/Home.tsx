@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import manyMoarFarmLogo from '../../assets/img/MM_logo_gold_400x.png'
+import chadChef from '../../assets/img/chefchad.png'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
 import Page from '../../components/Page'
@@ -11,7 +11,7 @@ import Balances from './components/Balances'
 const Home: React.FC = () => (
   <Page>
     <PageHeader
-      icon={<img src={manyMoarFarmLogo} alt="Many Moar" height={320} />}
+      icon={<img src={chadChef} alt="Chad Chef" height={320} />}
       title="Moar is Ready"
       subtitle="Stake Uniswap LP tokens to claim your very own MOAR!"
     />
