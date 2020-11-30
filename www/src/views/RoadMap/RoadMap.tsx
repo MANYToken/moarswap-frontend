@@ -27,7 +27,8 @@ const ComingSoons: React.FC = () => {
         </p>
       </VerticalTimelineElement>
       <VerticalTimelineElement
-        className="vertical-timeline-element--work" date="2010 - 2011"
+        className="vertical-timeline-element--work"
+        date="2010 - 2011"
         iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
         icon={<FontAwesomeIcon icon="minus" size="2x" />}
       >
