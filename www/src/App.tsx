@@ -15,11 +15,13 @@ import useModal from './hooks/useModal'
 import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
+import ComingSoon from './views/ComingSoon'
+import RoadMap from './views/RoadMap'
 import NFTs from './views/NFTs'
 import NFTCreate from './views/NFTCreate'
 import MyCollectibles from './views/MyCollectibles'
 
-import bgVidLoop from './assets/vid/background-vid-loop.mp4'
+import bgVidLoop from './assets/vid/background-vid-opening.mp4'
 import bgVidWebMLoop from './assets/vid/background-vid-loop.webm'
 
 import bgVidOpening from './assets/vid/background-vid-opening.mp4'
@@ -98,6 +100,13 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" exact>
             <Home />
+          </Route>
+
+          <Route path="/roadmap">
+            <RoadMap />
+          </Route>
+          <Route path="/comingsoons">
+            <ComingSoon />
           </Route>
           <Route path="/farms">
             <Farms />
