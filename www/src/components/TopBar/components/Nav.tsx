@@ -15,15 +15,15 @@ const Nav: React.FC = () => (
     </StyledLink>
 
     <StyledLink exact activeClassName="active" to="/comingsoons">
-   Government Page 
+      Government Page
     </StyledLink>
 
-{/* 
+    {/*
     <StyledLink exact activeClassName="active" to="/comingsoons">
      Hall of fame
     </StyledLink> */}
     <StyledLink exact activeClassName="active" to="/roadmap">
-     Road Map
+      Road Map
     </StyledLink>
     {/*
     <StyledLink exact activeClassName="active" to="/my">

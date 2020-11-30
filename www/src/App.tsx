@@ -24,7 +24,7 @@ import MyCollectibles from './views/MyCollectibles'
 import bgVidLoop from './assets/vid/background-vid-opening.mp4'
 import bgVidWebMLoop from './assets/vid/background-vid-loop.webm'
 
-import bgVidOpening from './assets/vid/background-vid-opening.mp4'
+// import bgVidOpening from './assets/vid/background-vid-opening.mp4'
 import bgVidWebMOpening from './assets/vid/background-vid-opening.webm'
 
 import bgVidPic from './assets/img/when-no-video.png'
@@ -93,7 +93,7 @@ const App: React.FC = () => {
             setUseLoopingVid(true)
           }}
         >
-          <source src={bgVidOpening} type="video/mp4" />
+          <source src={bgVidLoop} type="video/mp4" />
           <source src={bgVidWebMOpening} type="video/webm" />
         </video>
 

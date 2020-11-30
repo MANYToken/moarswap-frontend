@@ -7,13 +7,13 @@ const Nav: React.FC = () => (
       target="_blank"
       href="https://etherscan.io/address/0xcff6540c125f9dec2c5427b60e89816e840b25ec#code"
     >
-   Many Contract 
+      Many Contract
     </StyledLink>
     <StyledLink
       target="_blank"
       href="https://etherscan.io/address/0xb1a6876ad98fba649a66be916559039abdd3dbbe"
     >
-       Moar Contract
+      Moar Contract
     </StyledLink>
     <StyledLink
       target="_blank"
@@ -32,10 +32,9 @@ const Nav: React.FC = () => (
     </StyledLink>
 
     <StyledLink target="_blank" href="https://docs.google.com/document/d/16pigIkBs6D_aD8W9wBumB4ZJQGJAzLR_p3tl9rfdf6I/edit?usp=sharing">
-    White Paper
+      White Paper
     </StyledLink>
 
-   
   </StyledNav>
 )
 
