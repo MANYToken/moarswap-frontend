@@ -7,13 +7,19 @@ const Nav: React.FC = () => (
       target="_blank"
       href="https://etherscan.io/address/0xcff6540c125f9dec2c5427b60e89816e840b25ec#code"
     >
-      ChadChef Contract
+      Many Contract
+    </StyledLink>
+    <StyledLink
+      target="_blank"
+      href="https://etherscan.io/address/0xb1a6876ad98fba649a66be916559039abdd3dbbe"
+    >
+      Moar Contract
     </StyledLink>
     <StyledLink
       target="_blank"
       href="https://uniswap.info/pair/0x55a06945E79F2d6a14b5C4f18E8E73091e2E57D6"
     >
-      Uniswap MANY-ETH
+      Buy Many
     </StyledLink>
     <StyledLink target="_blank" href="https://t.me/manyunderstandthis">
       Telegram
@@ -21,9 +27,14 @@ const Nav: React.FC = () => (
     <StyledLink target="_blank" href="https://github.com/MANYToken">
       Github
     </StyledLink>
-    <StyledLink target="_blank" href="https://twitter.com/Chadmunity">
+    <StyledLink target="_blank" href="https://twitter.com/MANY_GLOBAL">
       Twitter
     </StyledLink>
+
+    <StyledLink target="_blank" href="https://docs.google.com/document/d/16pigIkBs6D_aD8W9wBumB4ZJQGJAzLR_p3tl9rfdf6I/edit?usp=sharing">
+      White Paper
+    </StyledLink>
+
   </StyledNav>
 )
 

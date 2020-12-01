@@ -4,18 +4,28 @@ import styled from 'styled-components'
 
 const Nav: React.FC = () => (
   <StyledNav>
-    <StyledLink exact activeClassName="active" to="/">
+    {/* <StyledLink exact activeClassName="active" to="/">
       Home
-    </StyledLink>
+    </StyledLink> */}
     <StyledLink exact activeClassName="active" to="/farms">
       Menu
     </StyledLink>
-    {/* <StyledLink exact activeClassName="active" to="/create-nft">
-      Create Nft
-    </StyledLink> */}
-    {/* <StyledLink exact activeClassName="active" to="/nfts">
-      NFTs
+    <StyledLink exact activeClassName="active" to="/create-nft">
+      NFT
     </StyledLink>
+
+    <StyledLink exact activeClassName="active" to="/comingsoons">
+      Government Page
+    </StyledLink>
+
+    {/*
+    <StyledLink exact activeClassName="active" to="/comingsoons">
+     Hall of fame
+    </StyledLink> */}
+    <StyledLink exact activeClassName="active" to="/roadmap">
+      Road Map
+    </StyledLink>
+    {/*
     <StyledLink exact activeClassName="active" to="/my">
       My collectibles
     </StyledLink> */}
