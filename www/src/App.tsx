@@ -22,8 +22,6 @@ import NFTCreate from './views/NFTCreate'
 import MyCollectibles from './views/MyCollectibles'
 
 import bgVidLoop from './assets/vid/background-vid-opening.mp4'
-import bgVidWebMLoop from './assets/vid/background-vid-loop.webm'
-
 // import bgVidOpening from './assets/vid/background-vid-opening.mp4'
 import bgVidWebMOpening from './assets/vid/background-vid-opening.webm'
 
@@ -61,7 +59,7 @@ const App: React.FC = () => {
       }}
     >
       <source src={bgVidLoop} type="video/mp4" />
-      <source src={bgVidWebMLoop} type="video/webm" />
+      <source src={bgVidLoop} type="video/webm" />
     </video>
   )
 
