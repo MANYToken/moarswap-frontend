@@ -15,7 +15,8 @@ const Nav: React.FC = () => (
     </StyledLink>
 
     <StyledLink exact activeClassName="active" to="/comingsoons">
-      Government Page
+ 
+      Government 
     </StyledLink>
 
     {/*
