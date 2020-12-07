@@ -96,9 +96,9 @@ const App: React.FC = () => {
         </video>
 
         <Switch>
-          <Route path="/" exact>
+          {/* <Route path="/" exact>
             <Home />
-          </Route>
+          </Route> */}
 
           <Route path="/roadmap">
             <RoadMap />
@@ -106,7 +106,7 @@ const App: React.FC = () => {
           <Route path="/comingsoons">
             <ComingSoon />
           </Route>
-          <Route path="/farms">
+          <Route path="/">
             <Farms />
           </Route>
           <Route path="/nfts">
