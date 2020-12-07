@@ -57,7 +57,7 @@ const ComingSoons: React.FC = () => {
       >
         <h3 className="vertical-timeline-element-title">MANY MOAR pool</h3>
         <p>
-          Providing liquidity for the project by paring MANY to MAOR  + MANY to ETH
+          Providing liquidity for the project by paring MANY to MOAR  + MANY to ETH
           to stack and farm the coins for future using in mining a dynamic multi-use NFT.
         </p>
       </VerticalTimelineElement>
@@ -80,7 +80,7 @@ const ComingSoons: React.FC = () => {
       >
         <h3 className="vertical-timeline-element-title">NFT Platform</h3>
         <p>
-          Full dynamic NT with a digital market place implementation with multi-layers
+          Full dynamic NFT with a digital market place implementation with multi-layers
           futures and uses based on a custom made erc1155 that will be minted using $MOAR token.
         </p>
       </VerticalTimelineElement>

@@ -7,7 +7,7 @@ const Nav: React.FC = () => (
     {/* <StyledLink exact activeClassName="active" to="/">
       Home
     </StyledLink> */}
-    <StyledLink exact activeClassName="active" to="/farms">
+    <StyledLink exact activeClassName="active" to="/">
       Menu
     </StyledLink>
     <StyledLink exact activeClassName="active" to="/create-nft">
@@ -15,8 +15,8 @@ const Nav: React.FC = () => (
     </StyledLink>
 
     <StyledLink exact activeClassName="active" to="/comingsoons">
- 
-      Government 
+
+      Government
     </StyledLink>
 
     {/*
