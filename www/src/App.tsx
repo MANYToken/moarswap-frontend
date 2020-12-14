@@ -25,7 +25,7 @@ import bgVidLoop from './assets/vid/background-vid-opening.mp4'
 // import bgVidOpening from './assets/vid/background-vid-opening.mp4'
 import bgVidWebMOpening from './assets/vid/background-vid-opening.webm'
 
-import bgVidPic from './assets/img/when-no-video.png'
+import bgVidPic from './assets/img/cool-background.png'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -96,9 +96,9 @@ const App: React.FC = () => {
         </video>
 
         <Switch>
-          {/* <Route path="/" exact>
+          <Route path="/" exact>
             <Home />
-          </Route> */}
+          </Route>
 
           <Route path="/roadmap">
             <RoadMap />
@@ -106,7 +106,7 @@ const App: React.FC = () => {
           <Route path="/comingsoons">
             <ComingSoon />
           </Route>
-          <Route path="/">
+          <Route path="/farms">
             <Farms />
           </Route>
           <Route path="/nfts">
